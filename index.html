@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <title>Kai's Website</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,500,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="formulas.js"></script> 
+    <script src="script.js"></script> 
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <!-- This is the header portion of the website -->
+      <div class="row header">
+        <div class="col-lg-3 logo-container">
+          <div class="cp-logo"></div>
+        </div>
+        <div class="menu"></div>
+      </div>
+      <div class="row main-title">
+        <div class="title-text medium-font col-lg-12">
+        Power of One
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="field-container">
+            <p class ="field-label">Time Period</p>
+            <input id="time_period" type="number"/>
+          </div>
+          <div class="field-container">
+            <p class ="field-label">Revenue</p>
+            <input id="revenue" type="number"/>
+          </div>
+          <div class="field-container">
+            <p class ="field-label">COGS</p>
+            <input id="cogs" type="number"/>
+          </div>
+          <div class="field-container">
+            <p class ="field-label">Operating & Other Expense</p>
+            <input id="opr_ex" type="number"/>
+          </div>
+          <div class="field-container">
+            <p class ="field-label">Accounts Receivable</p>
+            <input id="accounts_receivable" type="number"/>
+          </div>
+          <div class="field-container">
+            <p class ="field-label">Inventory</p>
+            <input id="inventory" type="number"/>
+          </div>
+          <div class="field-container">
+            <p class ="field-label">Accounts Payable</p>
+            <input id="accounts_payable" type="number"/>
+          </div>
+          <div class="field-container">
+            <p class ="field-label">Non-Cash Expense</p>
+            <input id="non_cash_expense" type="number"/>
+          </div>
+        </div>
+        <div class="col-lg-6"></div>
+      </div>
+      <div class="row">
+        <button id="calculate" onClick="Calculate()">Calculate</button>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Indicators</p>
+          <div class="indicator-container">
+            <p class="field-label">Gross Margin:</p>
+            <p id="gross_margin"></p>
+          </div>
+          <div class="indicator-container">
+            <p class="field-label">EBIT:</p>
+            <p id="ebit"></p>
+          </div>
+          <div class="indicator-container">
+            <p class="field-label">EBITDA</p>
+            <p id="ebitda"></p>
+          </div>
+          <div class="indicator-container">
+            <p class="field-label">Investment in Working Capital (Per $1 Revenue):</p>
+            <p id="wc_rev"></p>
+          </div>
+          <div class="indicator-container">
+            <p class="field-label">Investment in Working Capital(per $1 EBITDA):</p>
+            <p id="wc_ebitda"></p>
+          </div>
+          <div class="indicator-container">
+            <p class="field-label">Marginal Cash Flow:</p>
+            <p id="mcf_rev"></p>
+          </div>
+          <div class="indicator-container">
+            <p class="field-label">Marginal Cash Flow (Per EBITDA):</p>
+            <p id="mcf_ebitda"></p>
+          </div>
+          <div class="indicator-container">
+            <p class="field-label">Days Sales Outstanding (DSO):</p>
+            <p id="dso"></p>
+          </div>
+          <div class="indicator-container">
+            <p class="field-label">Days Inventory Outstanding(DIO):</p>
+            <p id="dio"></p>
+          </div>
+          <div class="indicator-container">
+            <p class="field-label">Days Payable Outstanding (DPO):</p>
+            <p id="dpo"></p>
+          </div>
+          <div class="indicator-container">
+            <p class="field-label">Cash Conversion Cycle</p>
+            <p id="cash_conv"></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

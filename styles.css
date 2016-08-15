@@ -1,0 +1,46 @@
+/*font Weights 300, 500 and 900, use the following classes for */
+.light-font{
+  font-family:'Roboto',sans-serif;
+  font-weight: 300;
+}
+.medium-font{
+  font-family:'Roboto',sans-serif;
+  font-weight: 500;
+}
+.heavy-font{
+  font-family:'Roboto',sans-serif;
+  font-weight: 900;
+}
+
+
+.field-label{
+  display: inline-block;
+  padding-right: 10px;
+}
+
+/*These CSS are for the title area*/
+.main-title{
+  background-color: #012742;
+  color:white;
+  font-size: 4rem;
+  height: 72px;
+  text-align: center
+}
+.title-text{
+  vertical-align: middle;
+  padding-top: 5px;
+}
+.header{
+  height:130px;
+}
+.logo-container{
+  height:inherit;
+}
+.cp-logo{
+  background-image: url("CPLogo.png");
+  width:170px;
+  height:130px;
+  background-size: contain;
+  margin:15px auto 0px ;
+  background-repeat: no-repeat;
+}
