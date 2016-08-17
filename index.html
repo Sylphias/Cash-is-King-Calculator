@@ -12,7 +12,8 @@
   </head>
 
   <body>
-    <div class="container-fluid">
+
+    <div class="container-fluid header-container">
       <!-- This is the header portion of the website -->
       <div class="row header">
         <div class="col-lg-3 logo-container">
@@ -21,48 +22,88 @@
         <div class="menu"></div>
       </div>
       <div class="row main-title">
-        <div class="title-text medium-font col-lg-12">
+        <div class="title-text medium-font ">
         Power of One
         </div>
       </div>
-
+    </div>
+    <div class="container">
       <div class="row">
-        <div class="col-lg-6">
-          <div class="field-container">
-            <p class ="field-label">Time Period</p>
-            <input id="time_period" type="number"/>
+        <div class="col-lg-5">
+          <!-- Your business row information -->
+          <div class="row business-row">
+            <div class= "col-lg-6 section-header"
+            <div class="col-lg-6 label-fields">
+              <p class ="field-label">Time Period</p>
+            </div>
+            <div class="col-lg-6 empty-fields">
+              <input class="business-input" id="time_period" type="number"/>
+            </div>
           </div>
-          <div class="field-container">
-            <p class ="field-label">Revenue</p>
-            <input id="revenue" type="number"/>
+          <div class="row business-row">
+            <div class="col-lg-6 label-fields">
+              <p class ="field-label">Revenue</p>
+            </div>
+            <div class="col-lg-6 empty-fields">
+            <input class="business-input" id="revenue" type="number"/>
+            </div>
           </div>
-          <div class="field-container">
-            <p class ="field-label">COGS</p>
-            <input id="cogs" type="number"/>
+          <div class="row business-row">
+            <div class="col-lg-6 label-fields">
+              <p class ="field-label">COGS</p>
+            </div>
+            <div class="col-lg-6 empty-fields">
+              <input class="business-input" id="cogs" type="number"/>
+            </div>
           </div>
-          <div class="field-container">
-            <p class ="field-label">Operating & Other Expense</p>
-            <input id="opr_ex" type="number"/>
+          <div class="row business-row">
+            <div class="col-lg-6 label-fields">
+              <p class ="field-label">Operating & Other Expense</p>
+            </div>
+            <div class="col-lg-6 empty-fields">
+              <input class="business-input" id="opr_ex" type="number"/>
+            </div>
+          </div>    
+          <div class="row business-row">
+            <div class="col-lg-6 label-fields">
+              <p class ="field-label">Accounts Receivable</p>
+            </div>
+            <div class="col-lg-6 empty-fields">
+              <input class="business-input" id="accounts_receivable" type="number"/>
+            </div>
           </div>
-          <div class="field-container">
-            <p class ="field-label">Accounts Receivable</p>
-            <input id="accounts_receivable" type="number"/>
-          </div>
-          <div class="field-container">
-            <p class ="field-label">Inventory</p>
-            <input id="inventory" type="number"/>
-          </div>
-          <div class="field-container">
-            <p class ="field-label">Accounts Payable</p>
-            <input id="accounts_payable" type="number"/>
-          </div>
-          <div class="field-container">
-            <p class ="field-label">Non-Cash Expense</p>
-            <input id="non_cash_expense" type="number"/>
-          </div>
+          <div class="row business-row">
+            <div class="col-lg-6 label-fields">
+              <p class ="field-label">Inventory</p>
+            </div>
+            <div class="col-lg-6 empty-fields">
+              <input class="business-input" id="inventory" type="number"/>
+            </div>
+          </div>   
+          <div class="row business-row">
+            <div class="col-lg-6 label-fields">
+              <p class ="field-label">Accounts Payable</p>
+            </div>
+            <div class="col-lg-6 empty-fields">
+              <input class="business-input" id="accounts_payable" type="number"/>
+            </div>
+          </div>   
+          <div class="row business-row">
+            <div class="col-lg-6 label-fields">
+              <p class ="field-label">Non-Cash Expense</p>
+            </div>
+            <div class="col-lg-6 empty-fields">
+              <input class="business-input" id="non_cash_expense" type="number"/>
+            </div>
+          </div>                        
         </div>
-        <div class="col-lg-6"></div>
-      </div>
+
+        <div class="col-lg-offset-1 col-lg-6">
+        </div>
+
+
+
+
       <div class="row">
         <button id="calculate" onClick="Calculate()">Calculate</button>
       </div>

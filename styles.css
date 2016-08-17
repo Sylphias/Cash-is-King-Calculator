@@ -12,13 +12,14 @@
   font-weight: 900;
 }
 
-
-.field-label{
-  display: inline-block;
-  padding-right: 10px;
+.section-header{
+  background-color: 
 }
 
 /*These CSS are for the title area*/
+.header-container{
+  margin-bottom: 10px
+}
 .main-title{
   background-color: #012742;
   color:white;
@@ -28,7 +29,7 @@
 }
 .title-text{
   vertical-align: middle;
-  padding-top: 5px;
+  padding-top: 8px;
 }
 .header{
   height:130px;
@@ -43,4 +44,12 @@
   background-size: contain;
   margin:15px auto 0px ;
   background-repeat: no-repeat;
+}
+
+/*Buisness info related CSS*/
+.field-labels{
+  display: inline-block;
+}
+.business-input{
+  height:28px;
 }
