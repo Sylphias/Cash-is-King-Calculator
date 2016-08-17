@@ -1,14 +1,21 @@
 <html>
   <head>
     <title>Kai's Website</title>
+    <!-- Roboto Google Font link -->
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,500,900' rel='stylesheet' type='text/css'>
+
+    <!-- CSS Stylesheets -->
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Javascript  -->
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
     <script src="formulas.js"></script> 
     <script src="script.js"></script> 
+
   </head>
 
   <body>
@@ -32,68 +39,71 @@
         <div class="col-lg-5">
           <!-- Your business row information -->
           <div class="row business-row">
-            <div class= "col-lg-6 section-header"
-            <div class="col-lg-6 label-fields">
-              <p class ="field-label">Time Period</p>
+            <div class= "col-lg-12 section-header heavy-font">
+              Your Business Information
             </div>
-            <div class="col-lg-6 empty-fields">
-              <input class="business-input" id="time_period" type="number"/>
+            <div class="col-lg-6 label-column">
+              <p class ="field-label medium-font">Time Period</p>
+            </div>
+            <div class="col-lg-4 input-column">
+              <input class="business-input form-control" id="time_period" type="number"/>
+            </div>
+            <div class=" unit-label col-lg-2 light-font">Months</div>
+          </div>
+          <div class="row business-row">
+            <div class="col-lg-6 label-column">
+              <p class ="field-label medium-font">Revenue</p>
+            </div>
+            <div class="col-lg-6 input-column">
+            <input class="business-input form-control" id="revenue" type="number"/>
             </div>
           </div>
           <div class="row business-row">
-            <div class="col-lg-6 label-fields">
-              <p class ="field-label">Revenue</p>
+            <div class="col-lg-6 label-column">
+              <p class ="field-label medium-font">COGS</p>
             </div>
-            <div class="col-lg-6 empty-fields">
-            <input class="business-input" id="revenue" type="number"/>
-            </div>
-          </div>
-          <div class="row business-row">
-            <div class="col-lg-6 label-fields">
-              <p class ="field-label">COGS</p>
-            </div>
-            <div class="col-lg-6 empty-fields">
-              <input class="business-input" id="cogs" type="number"/>
+            <div class="col-lg-6 input-column">
+              <input class="business-input form-control" id="cogs" type="number"/>
             </div>
           </div>
           <div class="row business-row">
-            <div class="col-lg-6 label-fields">
-              <p class ="field-label">Operating & Other Expense</p>
+            <div class="col-lg-6 label-column">
+              <p class ="field-label medium-font">Operating & Other Expense</p>
             </div>
-            <div class="col-lg-6 empty-fields">
-              <input class="business-input" id="opr_ex" type="number"/>
+            <div class="col-lg-6 input-column">
+              <input class="business-input form-control" id="opr_ex" type="number"/>
             </div>
           </div>    
           <div class="row business-row">
-            <div class="col-lg-6 label-fields">
-              <p class ="field-label">Accounts Receivable</p>
+            <div class="col-lg-6 label-column">
+              <p class ="field-label medium-font">Accounts Receivable</p>
             </div>
-            <div class="col-lg-6 empty-fields">
-              <input class="business-input" id="accounts_receivable" type="number"/>
+            <div class="col-lg-6 input-column">
+              <input class="business-input form-control" id="accounts_receivable" type="number"/>
             </div>
           </div>
           <div class="row business-row">
-            <div class="col-lg-6 label-fields">
-              <p class ="field-label">Inventory</p>
+            <div class="col-lg-6 label-column">
+              <p class ="field-label medium-font">Inventory</p>
             </div>
-            <div class="col-lg-6 empty-fields">
-              <input class="business-input" id="inventory" type="number"/>
-            </div>
-          </div>   
-          <div class="row business-row">
-            <div class="col-lg-6 label-fields">
-              <p class ="field-label">Accounts Payable</p>
-            </div>
-            <div class="col-lg-6 empty-fields">
-              <input class="business-input" id="accounts_payable" type="number"/>
+            <div class="col-lg-6 input-column">
+              <input class="business-input form-control" id="inventory" type="number"/>
             </div>
           </div>   
           <div class="row business-row">
-            <div class="col-lg-6 label-fields">
-              <p class ="field-label">Non-Cash Expense</p>
+            <div class="col-lg-6 label-column">
+              <p class ="field-label medium-font">Accounts Payable</p>
             </div>
-            <div class="col-lg-6 empty-fields">
-              <input class="business-input" id="non_cash_expense" type="number"/>
+            <div class="col-lg-6 input-column">
+              <input class="business-input form-control" id="accounts_payable" type="number"/>
+            </div>
+          </div>   
+          <div class="row business-row">
+            <div class="col-lg-6 label-column">
+              <p class ="field-label medium-font">Non-Cash Expense</p>
+            </div>
+            <div class="col-lg-6 input-column">
+              <input class="business-input form-control" id="non_cash_expense" type="number"/>
             </div>
           </div>                        
         </div>
@@ -111,7 +121,7 @@
         <div class="col-lg-12">
           <p>Indicators</p>
           <div class="indicator-container">
-            <p class="field-label">Gross Margin:</p>
+            <p class="field-label light-font">Gross Margin:</p>
             <p id="gross_margin"></p>
           </div>
           <div class="indicator-container">

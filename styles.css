@@ -11,9 +11,30 @@
   font-family:'Roboto',sans-serif;
   font-weight: 900;
 }
-
+/*Global CSS Classes*/
 .section-header{
-  background-color: 
+  background-color: #55A4DE;
+  height:40px;
+  margin: 10px 0px 15px;
+  color:#FFFFFF;
+  font-size: 3rem;
+}
+
+.field-label{
+  display: inline-block;
+  margin-top:5px;
+}
+/*CSS class for unit labels*/
+.unit-label{
+  font-size: 1.5rem;
+  margin-top:5px;
+  padding: 0px !important;
+}
+/*This removes the spinners on the number input fields*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 
 /*These CSS are for the title area*/
@@ -47,9 +68,11 @@
 }
 
 /*Buisness info related CSS*/
-.field-labels{
-  display: inline-block;
-}
 .business-input{
   height:28px;
+  width:100%;
+}
+
+.business-row{
+  margin-bottom: 10px;
 }
