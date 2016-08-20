@@ -5,16 +5,16 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,500,900' rel='stylesheet' type='text/css'>
 
     <!-- CSS Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Javascript  -->
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    
-    <script src="formulas.js"></script> 
-    <script src="script.js"></script> 
+    <script src="js/autoNumeric-min.js"></script>
+    <script src="js/formulas.js"></script> 
+    <script src="js/script.js"></script> 
 
   </head>
 
@@ -38,24 +38,26 @@
       <div class="row">
         <div class="col-lg-5">
           <!-- Your business row information -->
-          <div class="row business-row">
-            <div class= "col-lg-12 section-header heavy-font">
+          <div class="row">
+            <div class= "col-lg-12 section-header medium-font">
               Your Business Information
             </div>
+          </div>
+          <div class="row business-row">
             <div class="col-lg-6 label-column">
-              <p class ="field-label medium-font">Time Period</p>
-            </div>
-            <div class="col-lg-4 input-column">
-              <input class="business-input form-control" id="time_period" type="number"/>
-            </div>
-            <div class=" unit-label col-lg-2 light-font">Months</div>
+                <p class ="field-label medium-font">Time Period</p>
+              </div>
+              <div class="col-lg-4 input-column">
+                <input class="business-input form-control" id="time_period" type="number" value="12"/>
+              </div>
+              <div class=" unit-label col-lg-2 light-font">Months</div>
           </div>
           <div class="row business-row">
             <div class="col-lg-6 label-column">
               <p class ="field-label medium-font">Revenue</p>
             </div>
             <div class="col-lg-6 input-column">
-            <input class="business-input form-control" id="revenue" type="number"/>
+            <input class="business-input cash-formatting form-control" id="revenue" type="text"/>
             </div>
           </div>
           <div class="row business-row">
@@ -63,7 +65,7 @@
               <p class ="field-label medium-font">COGS</p>
             </div>
             <div class="col-lg-6 input-column">
-              <input class="business-input form-control" id="cogs" type="number"/>
+              <input class="business-input cash-formatting form-control" id="cogs" type="text"/>
             </div>
           </div>
           <div class="row business-row">
@@ -71,7 +73,7 @@
               <p class ="field-label medium-font">Operating & Other Expense</p>
             </div>
             <div class="col-lg-6 input-column">
-              <input class="business-input form-control" id="opr_ex" type="number"/>
+              <input class="business-input cash-formatting form-control" id="opr_ex" type="text"/>
             </div>
           </div>    
           <div class="row business-row">
@@ -79,7 +81,7 @@
               <p class ="field-label medium-font">Accounts Receivable</p>
             </div>
             <div class="col-lg-6 input-column">
-              <input class="business-input form-control" id="accounts_receivable" type="number"/>
+              <input class="business-input cash-formatting form-control" id="accounts_receivable" type="text"/>
             </div>
           </div>
           <div class="row business-row">
@@ -87,7 +89,7 @@
               <p class ="field-label medium-font">Inventory</p>
             </div>
             <div class="col-lg-6 input-column">
-              <input class="business-input form-control" id="inventory" type="number"/>
+              <input class="business-input cash-formatting form-control" id="inventory" type="text"/>
             </div>
           </div>   
           <div class="row business-row">
@@ -95,7 +97,7 @@
               <p class ="field-label medium-font">Accounts Payable</p>
             </div>
             <div class="col-lg-6 input-column">
-              <input class="business-input form-control" id="accounts_payable" type="number"/>
+              <input class="business-input cash-formatting form-control" id="accounts_payable" type="text"/>
             </div>
           </div>   
           <div class="row business-row">
@@ -103,67 +105,203 @@
               <p class ="field-label medium-font">Non-Cash Expense</p>
             </div>
             <div class="col-lg-6 input-column">
-              <input class="business-input form-control" id="non_cash_expense" type="number"/>
+              <input class="business-input cash-formatting form-control" id="non_cash_expense" type="text"/>
             </div>
           </div>                        
         </div>
-
+        <!-- Effects columns -->
         <div class="col-lg-offset-1 col-lg-6">
+            <div class='row'>
+              <div class= "col-lg-12 section-header medium-font">
+                Cashflow Effects
+              </div>
+            </div>
+
+            <div class='row effects-row'>
+              <div class="col-lg-4 label-column">
+                <p class="field-label medium-font">Reduce COGS</p>
+              </div>
+              <div class="col-lg-2 input-column">
+                <input class="effect-input form-control percentage-formatting" id="" type="text"/>
+              </div>
+              <div class="col-lg-2 control-column">
+                <div class='control-btn add-value-btn'>+</div>
+                <div class='control-btn minus-value-btn'>-</div>
+              </div>
+              <div class="col-lg-4 effects-column">
+                <div class="background-shading effect-value negative-cash-formatting medium-font">0</div>
+              </div>
+            </div>
+
+            <div class='row effects-row'>
+              <div class="col-lg-4 label-column">
+                <p class="field-label medium-font">Reduce Operating & Other Expenses</p>
+              </div>
+              <div class="col-lg-2 input-column">
+                <input class="effect-input form-control percentage-formatting" id="" type="text"/>
+              </div>
+              <div class="col-lg-2 control-column">
+                <div class='control-btn add-value-btn'>+</div>
+                <div class='control-btn minus-value-btn'>-</div>
+              </div>
+              <div class="col-lg-4 effects-column">
+                <div class="background-shading effect-value negative-cash-formatting medium-font">0</div>
+              </div>
+            </div>
+
+
+            <div class='row effects-row'>
+              <div class="col-lg-4 label-column">
+                <p class="field-label medium-font">Increase Revenue</p>
+              </div>
+              <div class="col-lg-2 input-column">
+                <input class="effect-input form-control percentage-formatting" id="inc-rev" type="text"/>
+              </div>
+              <div class="col-lg-2 control-column">
+                <div class='control-btn add-value-btn'>+</div>
+                <div class='control-btn minus-value-btn'>-</div>
+              </div>
+              <div class="col-lg-4 effects-column">
+                <div class="background-shading effect-value negative-cash-formatting medium-font">0</div>
+              </div>
+            </div>
+
+
+            <div class='row effects-row'>
+              <div class="col-lg-4 label-column">
+                <p class="field-label medium-font">Increase Sales Volume</p>
+              </div>
+              <div class="col-lg-2 input-column">
+                <input class="effect-input form-control percentage-formatting" id="inc-sales-vol" type="text"/>
+              </div>
+              <div class="col-lg-2 control-column">
+                <div class='control-btn add-value-btn'>+</div>
+                <div class='control-btn minus-value-btn'>-</div>
+              </div>
+              <div class="col-lg-4 effects-column">
+                <div class="background-shading effect-value negative-cash-formatting medium-font">0</div>
+              </div>
+            </div>
+
+            <div class='row effects-row'>
+              <div class="col-lg-4 label-column">
+                <p class="field-label medium-font">Reduce Debtors</p>
+              </div>
+              <div class="col-lg-2 input-column">
+                <input class="effect-input form-control days-formatting" id="red-debt" type="text"/>
+              </div>
+              <div class="col-lg-2 control-column">
+                <div class='control-btn add-value-btn'>+</div>
+                <div class='control-btn minus-value-btn'>-</div>
+              </div>
+              <div class="col-lg-4 effects-column">
+                <div class="background-shading effect-value negative-cash-formatting medium-font">0</div>
+              </div>
+            </div>
+
+            <div class='row effects-row'>
+              <div class="col-lg-4 label-column">
+                <p class="field-label medium-font">Reduce Inventory</p>
+              </div>
+              <div class="col-lg-2 input-column">
+                <input class="effect-input form-control days-formatting" id="red-inv" type="text"/>
+              </div>
+              <div class="col-lg-2 control-column">
+                <div class='control-btn add-value-btn'>+</div>
+                <div class='control-btn minus-value-btn'>-</div>
+              </div>
+              <div class="col-lg-4 effects-column">
+                <div class="background-shading effect-value negative-cash-formatting medium-font">0</div>
+              </div>
+            </div>
+
+            <div class='row effects-row'>
+              <div class="col-lg-4 label-column">
+                <p class="field-label medium-font">Increase Creditors</p>
+              </div>
+              <div class="col-lg-2 input-column">
+                <input class="effect-input form-control days-formatting" id="inc-creditor" type="text"/>
+              </div>
+              <div class="col-lg-2 control-column">
+                <div class='control-btn add-value-btn'>+</div>
+                <div class='control-btn minus-value-btn'>-</div>
+              </div>
+              <div class="col-lg-4 effects-column">
+                <div class="background-shading effect-value negative-cash-formatting medium-font">0</div>
+              </div>
+            </div>
+
+            <div class='row effects-row subtotal'>
+              <div class="col-lg-8 subtotal-label  heavy-font"> Total Cash Flow Change:</div>
+              <div class="col-lg-4 subtotal-field cash-formatting">0</div>
+            </div>
         </div>
 
 
-
-
-      <div class="row">
-        <button id="calculate" onClick="Calculate()">Calculate</button>
       </div>
+
+      <!-- Indicators Section -->
       <div class="row">
         <div class="col-lg-12">
-          <p>Indicators</p>
-          <div class="indicator-container">
-            <p class="field-label light-font">Gross Margin:</p>
-            <p id="gross_margin"></p>
+          <div class="row">
+            <div class= "col-lg-12 section-header medium-font">
+              Indicators
+            </div>
           </div>
-          <div class="indicator-container">
-            <p class="field-label">EBIT:</p>
-            <p id="ebit"></p>
+          <div class='row indicator-row'>
+          <div class="indicator-container col-lg-4">
+            <div class="field-label col-lg-7 medium-font">Gross Margin:</div>
+            <div class='col-lg-5 negative-cash-formatting heavy-font'id="gross_margin">0</div>
           </div>
-          <div class="indicator-container">
-            <p class="field-label">EBITDA</p>
-            <p id="ebitda"></p>
+          <div class="indicator-container col-lg-4">
+            <div class="field-label col-lg-7 medium-font">EBIT:</div>
+            <div class='col-lg-5 negative-cash-formatting heavy-font'id="ebit">0</div>
           </div>
-          <div class="indicator-container">
-            <p class="field-label">Investment in Working Capital (Per $1 Revenue):</p>
-            <p id="wc_rev"></p>
+          <div class="indicator-container col-lg-4">
+            <div class="field-label col-lg-7 medium-font">EBITDA</div>
+            <div class='col-lg-5 negative-cash-formatting heavy-font'id="ebitda">0</div>
           </div>
-          <div class="indicator-container">
-            <p class="field-label">Investment in Working Capital(per $1 EBITDA):</p>
-            <p id="wc_ebitda"></p>
+        </div>
+
+        <div class='row indicator-row'>
+          <div class="indicator-container col-lg-4">
+            <div class="field-label col-lg-7 medium-font">Marginal Cash Flow </br>(Per $1 Revenue):</div>
+            <div class='col-lg-5 negative-cash-formatting heavy-font'id="mcf_rev">0</div>
           </div>
-          <div class="indicator-container">
-            <p class="field-label">Marginal Cash Flow:</p>
-            <p id="mcf_rev"></p>
+          <div class="indicator-container col-lg-4">
+            <div class="field-label col-lg-7 medium-font">Marginal Cash Flow </br>(Per EBITDA):</div>
+            <div class='col-lg-5 negative-cash-formatting heavy-font'id="mcf_ebitda">0</div>
           </div>
-          <div class="indicator-container">
-            <p class="field-label">Marginal Cash Flow (Per EBITDA):</p>
-            <p id="mcf_ebitda"></p>
+          <div class="indicator-container col-lg-4">
+            <div class="field-label col-lg-7 medium-font">Cash Conversion Cycle</div>
+            <div class='col-lg-5 negative-cash-formatting heavy-font'id="cash_conv">0</div>
           </div>
-          <div class="indicator-container">
-            <p class="field-label">Days Sales Outstanding (DSO):</p>
-            <p id="dso"></p>
+        </div>
+        <div class='row indicator-row'>
+          <div class="indicator-container col-lg-4">
+            <div class="field-label col-lg-7 medium-font">Days Sales Outstanding (DSO):</div>
+            <div class='col-lg-5 negative-cash-formatting heavy-font'id="dso">0</div>
           </div>
-          <div class="indicator-container">
-            <p class="field-label">Days Inventory Outstanding(DIO):</p>
-            <p id="dio"></p>
+          <div class="indicator-container col-lg-4">
+            <div class="field-label col-lg-7 medium-font">Days Inventory Outstanding(DIO):</div>
+            <div class='col-lg-5 negative-cash-formatting heavy-font'id="dio">0</div>
           </div>
-          <div class="indicator-container">
-            <p class="field-label">Days Payable Outstanding (DPO):</p>
-            <p id="dpo"></p>
+          <div class="indicator-container col-lg-4">
+            <div class="field-label col-lg-7 medium-font">Days Payable Outstanding (DPO):</div>
+            <div class='col-lg-5 negative-cash-formatting heavy-font'id="dpo">0</div>
           </div>
-          <div class="indicator-container">
-            <p class="field-label">Cash Conversion Cycle</p>
-            <p id="cash_conv"></p>
+        </div>
+
+        <div class='row indicator-row'>
+          <div class="indicator-container col-lg-4">
+            <div class="field-label col-lg-7 medium-font">Investment in Working Capital - per $1 Revenue:</div>
+            <div class='col-lg-5 negative-cash-formatting heavy-font'id="wc_rev">0</div>
           </div>
+          <div class="indicator-container col-lg-4">
+            <div class="field-label col-lg-7 medium-font">Investment in Working Capital - per $1 EBITDA:</div>
+            <div class='col-lg-5 negative-cash-formatting heavy-font'id="wc_ebitda">0</div>
+          </div>
+        </div>
 
         </div>
       </div>

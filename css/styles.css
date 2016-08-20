@@ -1,0 +1,149 @@
+:root{
+  --cp-dark-blue:#012742 ;
+  --cp-section-blue: #55A4DE;
+}
+/*font Weights 300, 500 and 900, use the following classes for */
+.light-font{
+  font-family:'Roboto',sans-serif;
+  font-weight: 300;
+}
+.medium-font{
+  font-family:'Roboto',sans-serif;
+  font-weight: 500;
+}
+.heavy-font{
+  font-family:'Roboto',sans-serif;
+  font-weight: 900;
+}
+/*Global CSS Classes*/
+.section-header{
+  background-color: var(--cp-section-blue);
+  height:40px;
+  margin: 10px 0px 10px;
+  padding-top: 3px;
+  color:#FFFFFF;
+  font-size: 2.5rem;
+}
+
+.row{
+  margin-bottom: 10px;
+}
+
+.field-label{
+  display: inline-block;
+  margin-top:5px;
+}
+/*CSS class for unit labels*/
+.unit-label{
+  font-size: 1.5rem;
+  margin-top:5px;
+  padding: 0px 0px 0px 5px;
+}
+/*This removes the spinners on the number input fields*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+/*These CSS are for the title area*/
+.header-container{
+  margin-bottom: 10px
+}
+.main-title{
+  background-color: var(--cp-dark-blue);
+  color:white;
+  font-size: 4rem;
+  height: 72px;
+  text-align: center
+}
+.title-text{
+  vertical-align: middle;
+  padding-top: 8px;
+}
+.header{
+  height:130px;
+}
+.logo-container{
+  height:inherit;
+}
+.cp-logo{
+  background-image: url("../img/CPLogo.png");
+  width:170px;
+  height:130px;
+  background-size: contain;
+  margin:15px auto 0px ;
+  background-repeat: no-repeat;
+}
+
+/*Business info related CSS*/
+.business-row{
+  height:38px;
+}
+.business-input{
+  height:28px;
+  width:100%;
+}
+
+/*Effects related CSS*/
+
+.effects-row{
+  height: 55px;
+  margin-bottom: 0px;
+}
+.control-column,.effects-column{
+  height:36px;
+  padding-right: 0px !important;
+}
+.control-btn{
+  background-color: var(--cp-section-blue);
+  width:100%;
+  height:50%;
+  color:white;
+  text-align: center;  
+}
+.effect-input{
+  margin-top: 4px;
+}
+
+.add-value-btn{
+  border-radius: 5px 5px 0px 0px;
+  margin-bottom: 2px;
+  height:18px;
+}
+.minus-value-btn{
+  border-radius: 0px 0px 5px 5px;
+  height:18px;
+}
+
+.background-shading{
+  background: linear-gradient(to right, var(--cp-section-blue) 60%, transparent);
+  width:100%;
+  height:100%;
+  display: inline-block;
+  text-align: center;
+  padding-top: 8px;
+}
+
+.subtotal{
+  border-top:2px solid var(--cp-dark-blue); 
+  margin-top: 15px !important;
+}
+.subtotal-field{
+  text-align: center;
+  font-size: 2rem;
+}
+.subtotal-label{
+  text-align: right;
+  font-size: 2rem;
+}
+
+.input-column{
+  padding:0px !important;
+}
+
+/* Indicator section stuffs*/
+.indicator-container{
+  height:40px;
+  margin:10px 0px;
+}
