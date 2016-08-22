@@ -25,6 +25,16 @@
   font-size: 2.5rem;
 }
 
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
 .row{
   margin-bottom: 10px;
 }
@@ -110,14 +120,28 @@ input[type=number]::-webkit-outer-spin-button {
   border-radius: 5px 5px 0px 0px;
   margin-bottom: 2px;
   height:18px;
+  cursor:pointer;
+  cursor:hand;
 }
+
+.add-value-btn:active, .minus-value-btn:active{
+  background-color: var(--cp-dark-blue);
+}
+
 .minus-value-btn{
   border-radius: 0px 0px 5px 5px;
   height:18px;
+  cursor:pointer;
+  cursor:hand;
+  user-select:none;
 }
 
 .background-shading{
-  background: linear-gradient(to right, var(--cp-section-blue) 60%, transparent);
+  background: -o-linear-gradient(to right, var(--cp-section-blue) 0%, transparent);
+  background: -ms-linear-gradient(to right, var(--cp-section-blue) 0%, transparent);
+  background: -moz-linear-gradient(to right, var(--cp-section-blue) 0%, transparent);
+  background: -webkit-linear-gradient(to right, var(--cp-section-blue) 0%, transparent);
+  background: linear-gradient(to right, var(--cp-section-blue) 0%, transparent);
   width:100%;
   height:100%;
   display: inline-block;
@@ -129,10 +153,12 @@ input[type=number]::-webkit-outer-spin-button {
   border-top:2px solid var(--cp-dark-blue); 
   margin-top: 15px !important;
 }
+
 .subtotal-field{
   text-align: center;
   font-size: 2rem;
 }
+
 .subtotal-label{
   text-align: right;
   font-size: 2rem;
