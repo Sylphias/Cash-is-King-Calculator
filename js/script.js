@@ -102,7 +102,8 @@ function Calculate(){
 
 // This function changes the length of each effect's background shading in the effects column to be relative to the largest value
 function EffectsBGRelativeChange(target,value,max){
-  shading_percentage = value === max ? ((value*0.95)/max)*100 : (value/max)*100
+  ratio = (value/max)
+  shading_percentage =   ratio > 0.95 ? 95 : ratio*100
   $(target).css('background','linear-gradient(to right, var(--cp-section-blue) '+ shading_percentage +'%, transparent)')
   // $(target).css('background','blue')
 }
