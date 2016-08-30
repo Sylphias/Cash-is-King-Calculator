@@ -61,7 +61,7 @@ function Calculate(){
   $('#wc_rev').autoNumeric('set', WorkingCapRev(acct_receivable,inventory,acct_payable,time_period,revenue,cogs,opr_exp)*100)
   $('#wc_ebitda').autoNumeric('set', WorkingCapEbitda(acct_receivable,inventory,acct_payable,time_period,revenue,cogs,opr_exp)*100)
   $('#mcf_rev').autoNumeric('set', MarginalCFRevenue(parseFloat($('#gross_margin').autoNumeric('get')),parseFloat($('#wc_rev').autoNumeric('get'))))
-  $('#mcf_ebitda').autoNumeric('set', MarginalCFEbitda(parseFloat($('#ebitda').autoNumeric('get')),parseFloat($('#wc_ebitda').autoNumeric('get'))))
+  $('#mcf_ebitda').autoNumeric('set', MarginalCFEbitda(parseFloat($('#ebitda').autoNumeric('get')),revenue,cogs,acct_receivable,inventory,acct_payable))
   $('#dso').autoNumeric('set', DaysSalesOutstanding(acct_receivable,time_period,revenue))
   $('#dio').autoNumeric('set', DaysInventoryOutstanding(inventory,time_period,cogs))
   $('#dpo').autoNumeric('set', DaysPayableOutstanding(acct_payable,time_period,cogs))
