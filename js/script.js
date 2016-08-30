@@ -5,7 +5,9 @@ $(document).ready(function() {
    $(this).select();
   });
 
-
+  $("input[type='text']").on("tap", function () {
+     $(this).select();
+    });
   $('.cash-formatting').autoNumeric('init',{aSign:'$ ',aDec:'.',aSep:',',wEmpty:'zero'});
   $('.decimal-formatting').autoNumeric('init',{aSign:'',aDec:'.',aSep:',',wEmpty:'zero'});
   $('.percentage-formatting').autoNumeric('init',{pSign:'s',aSign:'%',wEmpty:'zero',mDec: '0'})

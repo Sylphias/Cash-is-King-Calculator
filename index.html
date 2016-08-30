@@ -57,7 +57,7 @@
               <p class ="field-label medium-font">Revenue</p>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 input-column">
-            <input class="business-input cash-formatting form-control" id="revenue" type="text"/>
+            <input class="business-input cash-formatting form-control" id="revenue" type="text" pattern="\d*"/>
             </div>
           </div>
           <div class="row business-row">
@@ -65,7 +65,7 @@
               <p class ="field-label medium-font">COGS</p>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 input-column">
-              <input class="business-input cash-formatting form-control" id="cogs" type="text"/>
+              <input class="business-input cash-formatting form-control" id="cogs" type="text" pattern="\d*"/>
             </div>
           </div>
           <div class="row business-row">
@@ -73,7 +73,7 @@
               <p class ="field-label medium-font">Operating & Other Expense</p>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 input-column">
-              <input class="business-input cash-formatting form-control" id="opr_ex" type="text"/>
+              <input class="business-input cash-formatting form-control" id="opr_ex" type="text" pattern="\d*"/>
             </div>
           </div>    
           <div class="row business-row">
@@ -81,7 +81,7 @@
               <p class ="field-label medium-font">Accounts Receivable</p>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 input-column">
-              <input class="business-input cash-formatting form-control" id="accounts_receivable" type="text"/>
+              <input class="business-input cash-formatting form-control" id="accounts_receivable" type="text" pattern="\d*"/>
             </div>
           </div>
           <div class="row business-row">
@@ -89,7 +89,7 @@
               <p class ="field-label medium-font">Inventory</p>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 input-column">
-              <input class="business-input cash-formatting form-control" id="inventory" type="text"/>
+              <input class="business-input cash-formatting form-control" id="inventory" type="text" pattern="\d*"/>
             </div>
           </div>   
           <div class="row business-row">
@@ -97,7 +97,7 @@
               <p class ="field-label medium-font">Accounts Payable</p>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 input-column">
-              <input class="business-input cash-formatting form-control" id="accounts_payable" type="text"/>
+              <input class="business-input cash-formatting form-control" id="accounts_payable" type="text" pattern="\d*"/>
             </div>
           </div>   
           <div class="row business-row">
@@ -105,7 +105,7 @@
               <p class ="field-label medium-font">Non-Cash Expense</p>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 input-column">
-              <input class="business-input cash-formatting form-control" id="non_cash_expense" type="text"/>
+              <input class="business-input cash-formatting form-control" id="non_cash_expense" type="text" pattern="\d*"/>
             </div>
           </div>                        
         </div>
@@ -122,7 +122,7 @@
                 <p class="field-label medium-font">Reduce COGS</p>
               </div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 input-column">
-                <input class="effect-input form-control percentage-formatting" id="red-cogs" type="text"/>
+                <input class="effect-input form-control percentage-formatting" id="red-cogs" type="text" pattern="\d*"/>
               </div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 control-column">
                 <div class='control-btn add-value-btn noselect'>+</div>
@@ -138,7 +138,7 @@
                 <p class="field-label medium-font">Reduce Operating & Other Expenses</p>
               </div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 input-column">
-                <input class="effect-input form-control percentage-formatting" id="red-opr-ex" type="text"/>
+                <input class="effect-input form-control percentage-formatting" id="red-opr-ex" type="text" pattern="\d*"/>
               </div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 control-column">
                 <div class='control-btn add-value-btn noselect'>+</div>
@@ -155,7 +155,7 @@
                 <p class="field-label medium-font">Increase Revenue</p>
               </div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 input-column">
-                <input class="effect-input form-control percentage-formatting" id="inc-rev" type="text"/>
+                <input class="effect-input form-control percentage-formatting" id="inc-rev" type="text" pattern="\d*"/>
               </div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 control-column">
                 <div class='control-btn add-value-btn noselect'>+</div>
@@ -172,7 +172,7 @@
                 <p class="field-label medium-font">Increase Sales Volume</p>
               </div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 input-column">
-                <input class="effect-input form-control percentage-formatting" id="inc-sales-vol" type="text"/>
+                <input class="effect-input form-control percentage-formatting" id="inc-sales-vol" type="text" pattern="\d*"/>
               </div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 control-column">
                 <div class='control-btn add-value-btn noselect'>+</div>
@@ -188,7 +188,7 @@
                 <p class="field-label medium-font">Reduce Debtors</p>
               </div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 input-column">
-                <input class="effect-input form-control days-formatting" id="red-debt" type="text"/>
+                <input class="effect-input form-control days-formatting" id="red-debt" type="text" pattern="\d*"/>
               </div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 control-column">
                 <div class='control-btn add-value-btn noselect'>+</div>
@@ -204,7 +204,7 @@
                 <p class="field-label medium-font">Reduce Inventory</p>
               </div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 input-column">
-                <input class="effect-input form-control days-formatting" id="red-inv" type="text"/>
+                <input class="effect-input form-control days-formatting" id="red-inv" type="text" pattern="\d*"/>
               </div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 control-column">
                 <div class='control-btn add-value-btn noselect'>+</div>
@@ -220,7 +220,7 @@
                 <p class="field-label medium-font">Increase Creditors</p>
               </div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 input-column">
-                <input class="effect-input form-control days-formatting" id="inc-creditor" type="text"/>
+                <input class="effect-input form-control days-formatting" id="inc-creditor" type="text" pattern="\d*"/>
               </div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 control-column">
                 <div class='control-btn add-value-btn noselect'>+</div>
