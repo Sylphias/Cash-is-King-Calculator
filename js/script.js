@@ -2,8 +2,11 @@
 $(document).ready(function() { 
 
   $("input[type='text']").on("click", function (e) {
+    e.stopPropagation();
     e.preventDefault();
     $(this).select();
+    $(this).focus();
+    $(this).get(0).setSelectionRange(0, 9999);
   });
 
   $("input[type='text']").on("tap", function (e) {
