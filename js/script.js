@@ -5,9 +5,10 @@ $(document).ready(function() {
     e.preventDefault();
     $(this).select();
   });
+
   $("input[type='text']").on("tap", function (e) {
    e.preventDefault();
-   $(this).select();
+   $(this).focus();
    $(this).get(0).setSelectionRange(0, 9999);
   });
   $('.cash-formatting').autoNumeric('init',{aSign:'$ ',aDec:'.',aSep:',',wEmpty:'zero'});
