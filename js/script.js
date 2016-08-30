@@ -1,13 +1,14 @@
 
 $(document).ready(function() { 
 
-  $("input[type='text']").on("click", function () {
+  $("input[type='text']").on("click", function (e) {
+    e.preventDefault();
+    $(this).select();
+  });
+  $("input[type='text']").on("tap", function (e) {
+   e.preventDefault();
    $(this).select();
   });
-
-  $("input[type='text']").on("tap", function () {
-     $(this).select();
-    });
   $('.cash-formatting').autoNumeric('init',{aSign:'$ ',aDec:'.',aSep:',',wEmpty:'zero'});
   $('.decimal-formatting').autoNumeric('init',{aSign:'',aDec:'.',aSep:',',wEmpty:'zero'});
   $('.percentage-formatting').autoNumeric('init',{pSign:'s',aSign:'%',wEmpty:'zero',mDec: '0'})
