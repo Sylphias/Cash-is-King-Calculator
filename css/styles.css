@@ -17,7 +17,7 @@
 }
 /*Global CSS Classes*/
 .section-header{
-  background-color: var(--cp-section-blue);
+  background-color: #55A4DE;
   height:40px;
   margin: 10px 0px 10px;
   padding-top: 3px;
@@ -56,7 +56,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin-bottom: 10px
 }
 .main-title{
-  background-color: var(--cp-dark-blue);
+  background-color: #012742;
   color:white;
   font-size: 4rem;
   height: 72px;
@@ -101,7 +101,7 @@ input[type=number]::-webkit-outer-spin-button {
   padding-right: 0px !important;
 }
 .control-btn{
-  background-color: var(--cp-section-blue);
+  background-color: #55A4DE;
   width:100%;
   height:50%;
   color:white;
@@ -120,7 +120,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .add-value-btn:active, .minus-value-btn:active{
-  background-color: var(--cp-dark-blue);
+  background-color: #012742;
 }
 
 .minus-value-btn{
@@ -142,7 +142,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .subtotal{
-  border-top:2px solid var(--cp-dark-blue); 
+  border-top:2px solid #012742; 
   margin-top: 15px !important;
 }
 

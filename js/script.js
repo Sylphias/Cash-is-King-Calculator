@@ -76,9 +76,9 @@ function Calculate(){
   OprExEffect(opr_exp,red_opr_ex),
   RevenueEffect(revenue,acct_receivable,inc_rev),
   SalesVolEffect(revenue,cogs,acct_receivable,inventory,acct_payable,inc_sales_vol),
-  DebtorEffect(acct_receivable,DSO,red_debt,revenue),
-  InventoryEffect(inventory,DIO,red_inv,cogs),
-  CreditorEffect(acct_payable,DPO,inc_creditor,cogs)
+  DebtorEffect(acct_receivable,DSO,red_debt,revenue,time_period),
+  InventoryEffect(inventory,DIO,red_inv,cogs,time_period),
+  CreditorEffect(acct_payable,DPO,inc_creditor,cogs,time_period)
   ]
 
   max_value = effect_array.reduce(max,0)

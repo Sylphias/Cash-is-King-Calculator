@@ -95,16 +95,16 @@ function SalesVolEffect(revenue,cogs,accounts_receivable,inventory,accounts_paya
   return (revenue-cogs- accounts_receivable - inventory+accounts_payable)*increase_sales_vol
 }
 
-function DebtorEffect(accounts_receivable,DSO,debtor_days,revenue){
-  return accounts_receivable-((DSO- debtor_days)*revenue/365)
+function DebtorEffect(accounts_receivable,DSO,debtor_days,revenue,months){
+  return accounts_receivable-((DSO - debtor_days)*(revenue/365)*(12/months))
 }
 
-function InventoryEffect(inventory,DIO, inventory_days,cogs){
-  return inventory-((DIO-inventory_days)*cogs/365)
+function InventoryEffect(inventory,DIO, inventory_days,cogs,months){
+  return inventory-((DIO-inventory_days)*(cogs/365)*(12/months))
 }
 
-function CreditorEffect(accounts_payable,DPO,creditor_days,cogs){
-  return accounts_payable-((DPO-creditor_days)*cogs/365)
+function CreditorEffect(accounts_payable,DPO,creditor_days,cogs,months){
+  return accounts_payable-((DPO-creditor_days)*(cogs/365)*(12/months))
 }
 
 // Change to cash flow is a sum of the effects column
