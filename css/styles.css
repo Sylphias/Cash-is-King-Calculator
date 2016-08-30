@@ -24,7 +24,9 @@
   color:#FFFFFF;
   font-size: 2.5rem;
 }
-
+.form-control{
+  cursor: pointer;
+}
 .noselect {
   user-select: none;           /* Non-prefixed version, currently
                                   not supported by any browser */
