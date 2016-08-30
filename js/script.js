@@ -10,6 +10,7 @@ $(document).ready(function() {
    e.preventDefault();
    $(this).focus();
    $(this).val('')
+   console.log("lol")
   });
   $('.cash-formatting').autoNumeric('init',{aSign:'$ ',aDec:'.',aSep:',',wEmpty:'zero'});
   $('.decimal-formatting').autoNumeric('init',{aSign:'',aDec:'.',aSep:',',wEmpty:'zero'});
