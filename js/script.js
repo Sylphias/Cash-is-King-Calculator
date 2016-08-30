@@ -9,7 +9,7 @@ $(document).ready(function() {
   $("input[type='text']").on("tap", function (e) {
    e.preventDefault();
    $(this).focus();
-   $(this).get(0).setSelectionRange(0, 9999);
+   $(this).val('')
   });
   $('.cash-formatting').autoNumeric('init',{aSign:'$ ',aDec:'.',aSep:',',wEmpty:'zero'});
   $('.decimal-formatting').autoNumeric('init',{aSign:'',aDec:'.',aSep:',',wEmpty:'zero'});
