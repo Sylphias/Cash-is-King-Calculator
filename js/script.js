@@ -7,6 +7,7 @@ $(document).ready(function() {
   });
 
   $("input[type='text']").on("tap", function (e) {
+   e.stopPropagation();
    e.preventDefault();
    $(this).focus();
    $(this).get(0).setSelectionRange(0, 9999);
