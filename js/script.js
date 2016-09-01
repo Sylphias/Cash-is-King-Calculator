@@ -3,6 +3,7 @@ $(document).on("mobileinit",function(){
   jQuery.mobile.autoInitializePage = false;
 });
 $(document).ready(function() { 
+  jQuery.mobile.autoInitializePage = false;
   $("input[type='text']").on("click", function (e) {
     e.stopPropagation();
     e.preventDefault();
