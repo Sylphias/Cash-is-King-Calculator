@@ -32,6 +32,7 @@ function MarginalCFRevenue(gross_margin, investment_wc_rev){
 //Marginal Cash Flow per EBITDA  
 function MarginalCFEbitda(ebitda, revenue,cogs,accounts_receivable,inventory,accounts_payable){
   return ((revenue-cogs-accounts_receivable-inventory+accounts_payable)/ebitda)*100
+  // return ((revenue-cogs-accounts_receivable-inventory+accounts_payable)/(revenue-cogs-opr_exp)
 }  
 //DSO
 function DaysSalesOutstanding(accounts_receivable,time_period,revenue){
@@ -95,16 +96,16 @@ function SalesVolEffect(revenue,cogs,accounts_receivable,inventory,accounts_paya
   return (revenue-cogs- accounts_receivable - inventory+accounts_payable)*increase_sales_vol
 }
 
-function DebtorEffect(accounts_receivable,DSO,debtor_days,revenue,months){
-  return accounts_receivable-((DSO - debtor_days)*(revenue/365)*(12/months))
+function DebtorEffect(accounts_receivable,DSO,debtor_days,revenue,days){
+  return accounts_receivable-((DSO - debtor_days)* revenue/365 * 12 / days)
 }
 
-function InventoryEffect(inventory,DIO, inventory_days,cogs,months){
-  return inventory-((DIO-inventory_days)*(cogs/365)*(12/months))
+function InventoryEffect(inventory,DIO, inventory_days,cogs,days){
+  return inventory-((DIO-inventory_days)* cogs / 365 * 12 / days)
 }
 
-function CreditorEffect(accounts_payable,DPO,creditor_days,cogs,months){
-  return accounts_payable-((DPO-creditor_days)*(cogs/365)*(12/months))
+function CreditorEffect(accounts_payable,DPO,creditor_days,cogs,days){
+  return accounts_payable-((DPO-creditor_days)* cogs / 365 * 12 / days )
 }
 
 // Change to cash flow is a sum of the effects column
