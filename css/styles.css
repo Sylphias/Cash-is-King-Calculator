@@ -19,18 +19,44 @@
   font-weight: 900;
 }
 /*Global CSS Classes*/
-/*Font Adjustments for iPhone Sized screens*/
+/*Font Adjustments for iPhone 6 Sized screens*/
 @media only screen 
 and (min-device-width : 375px) 
 and (max-device-width : 667px) 
 and (orientation : portrait) { 
-  .field-label{
-  font-size:0.8em;
+  .field-label, .unit-label, .form-control, .effect-value, .unit-label{
+  font-size:0.8em !important;
   }
-    .subtotal-field, .subtotal-label{
-    font-size: 1.2em !important;
+  .subtotal-field, .subtotal-label{
+    font-size: 1em !important;
+  }
+  .business-row, .effects-row{
+    margin-right: -10px !important;
+  }
+  .section-header{
+    font-size: 1.8em !important;
+    padding-top: 3px;
   }
 
+}
+/* For Older phones like iphone 5*/
+@media only screen 
+and (min-device-width : 150px) 
+and (max-device-width : 320px) 
+and (orientation : portrait) { 
+  .field-label, .form-control, .effect-value, .unit-label{
+  font-size:0.7em !important;
+  }
+  .subtotal-field, .subtotal-label{
+    font-size: 1em !important;
+  }
+  .business-row, .effects-row{
+    margin-right: -10px !important;
+  }
+  .section-header{
+    font-size: 1.8em !important;
+    padding-top: 3px;
+  }
 
 }
 
