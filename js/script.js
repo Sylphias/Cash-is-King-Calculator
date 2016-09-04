@@ -22,6 +22,7 @@ $(document).ready(function() {
   $('.decimal-formatting').autoNumeric('init',{aSign:'',aDec:'.',aSep:',',wEmpty:'zero',mDec: '0'});
   $('.percentage-formatting').autoNumeric('init',{pSign:'s',aSign:'%',wEmpty:'zero',mDec: '0',mDec: '0'})
   $('.negative-cash-formatting').autoNumeric('init',{aSign:'$ ',aDec:'.',aSep:',',nBracket: '(,)',wEmpty:'zero',mDec: '0'})
+  $('.negative-cash-decimal-formatting').autoNumeric('init',{aSign:'$ ',aDec:'.',aSep:',',nBracket: '(,)',wEmpty:'zero'})
   $('.days-formatting').autoNumeric('init',{aSign:' day(s)',aDec:'.',aSep:',',wEmpty:'zero',pSign:'s',mDec: '0'})
   $('.subtotal-field').autoNumeric('init',{aSign:'$ ',aDec:'.',aSep:',',wEmpty:'zero',mDec: '0'});
 
@@ -70,16 +71,17 @@ function Calculate(){
   $('#gross_margin').autoNumeric('set', GrossMargin(revenue,cogs)*100)
   $('#ebit').autoNumeric('set', EBIT(revenue,cogs,opr_exp,non_cash_expense)*100)
   $('#ebitda').autoNumeric('set', EBITDA(revenue,cogs,opr_exp)*100)
-  $('#wc_rev').autoNumeric('set', WorkingCapRev(acct_receivable,inventory,acct_payable,time_period,revenue,cogs,opr_exp)*100)
-  $('#wc_ebitda').autoNumeric('set', WorkingCapEbitda(acct_receivable,inventory,acct_payable,time_period,revenue,cogs,opr_exp)*100)
+  $('#wc_rev').autoNumeric('set', WorkingCapRev(acct_receivable,inventory,acct_payable,time_period,revenue,cogs,opr_exp))
+  $('#wc_ebitda').autoNumeric('set', WorkingCapEbitda(acct_receivable,inventory,acct_payable,time_period,revenue,cogs,opr_exp))
   $('#mcf_rev').autoNumeric('set', MarginalCFRevenue(parseFloat($('#gross_margin').autoNumeric('get')),parseFloat($('#wc_rev').autoNumeric('get'))))
-  $('#mcf_ebitda').autoNumeric('set', MarginalCFEbitda(parseFloat($('#ebitda').autoNumeric('get')),revenue,cogs,acct_receivable,inventory,acct_payable))
-  $('#dso').autoNumeric('set', DaysSalesOutstanding(acct_receivable,time_period,revenue))
-  $('#dio').autoNumeric('set', DaysInventoryOutstanding(inventory,time_period,cogs))
-  $('#dpo').autoNumeric('set', DaysPayableOutstanding(acct_payable,time_period,cogs))
-  DSO = parseFloat($('#dso').autoNumeric('get'))
-  DIO = parseFloat($('#dio').autoNumeric('get'))
-  DPO = parseFloat($('#dpo').autoNumeric('get'))
+  $('#mcf_ebitda').autoNumeric('set', MarginalCFEbitda(parseFloat($('#ebitda').autoNumeric('get')),revenue,cogs,acct_receivable,inventory,acct_payable,opr_exp))
+  DSO = DaysSalesOutstanding(acct_receivable,time_period,revenue)
+  DIO = DaysInventoryOutstanding(inventory,time_period,cogs)
+  DPO = DaysPayableOutstanding(acct_payable,time_period,cogs)
+  $('#dso').autoNumeric('set', DSO)
+  $('#dio').autoNumeric('set', DIO)
+  $('#dpo').autoNumeric('set', DPO)
+
   $('#cash_conv').autoNumeric('set', CashConversionCycle(DSO,DIO,DPO))
 
   // The purpose of this array is to get the maximum value of the effects to get the relative percentages for the shading
