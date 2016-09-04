@@ -19,46 +19,6 @@
   font-weight: 900;
 }
 /*Global CSS Classes*/
-/*Font Adjustments for iPhone 6 Sized screens*/
-@media only screen 
-and (min-device-width : 375px) 
-and (max-device-width : 667px) 
-and (orientation : portrait) { 
-  .field-label, .unit-label, .form-control, .effect-value, .unit-label{
-  font-size:0.8em !important;
-  }
-  .subtotal-field, .subtotal-label{
-    font-size: 1em !important;
-  }
-  .business-row, .effects-row{
-    margin-right: -10px !important;
-  }
-  .section-header{
-    font-size: 1.8em !important;
-    padding-top: 3px;
-  }
-
-}
-/* For Older phones like iphone 5*/
-@media only screen 
-and (min-device-width : 150px) 
-and (max-device-width : 320px) 
-and (orientation : portrait) { 
-  .field-label, .form-control, .effect-value, .unit-label{
-  font-size:0.7em !important;
-  }
-  .subtotal-field, .subtotal-label{
-    font-size: 1em !important;
-  }
-  .business-row, .effects-row{
-    margin-right: -10px !important;
-  }
-  .section-header{
-    font-size: 1.8em !important;
-    padding-top: 3px;
-  }
-
-}
 
 .section-header{
   background-color: #55A4DE;
@@ -210,4 +170,63 @@ input[type=number]::-webkit-outer-spin-button {
 .indicator-container{
   height:40px;
   margin:10px 0px;
+}
+
+
+/*Font Adjustments for iPhone 6 Sized screens*/
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : portrait) { 
+
+  .field-label, .unit-label, .form-control, .effect-value, .unit-label, .indicator-field{
+  font-size:0.7em !important;
+  }
+  .background-shading{
+    padding-top:  12px;
+  }
+  .indicator-field, .indicator-label{
+    font-size :0.8em !important;
+  }
+  .subtotal-field, .subtotal-label{
+    font-size: 1em !important;
+  }
+  .business-row, .effects-row{
+    margin-right: -10px !important;
+  }
+  .section-header{
+    font-size: 1.7em !important;
+    padding-top: 3px !important;
+  }
+  .indicator-container{
+    height:20px;
+  }
+}
+/* For Older phones like iphone 5*/
+@media only screen 
+and (min-device-width : 150px) 
+and (max-device-width : 320px) 
+and (orientation : portrait) { 
+  .field-label, .form-control, .effect-value, .unit-label{
+  font-size:0.6em !important;
+  }
+  .indicator-field, .indicator-label{
+    font-size:0.8em !important;
+  }
+  .background-shading{
+    padding-top:  12px;
+  }
+  .subtotal-field, .subtotal-label{
+    font-size: 1em !important;
+  }
+  .business-row, .effects-row{
+    margin-right: -10px !important;
+  }
+  .section-header{
+    font-size: 1.7em !important;
+    padding-top: 3px !important;
+  }
+  .indicator-container{
+    height:20px;
+  }
 }
