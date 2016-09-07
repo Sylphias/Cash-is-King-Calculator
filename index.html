@@ -26,11 +26,6 @@
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 logo-container">
           <div class="cp-logo"></div>
         </div>
-        <div class=" col-md-offset-6 col-lg-offset-6 col-md-3 col-lg-3 col-xs-12 col-sm-12 help-container">
-          <button class="help-text light-font btn btn-default" data-toggle="modal" data-target="#help-modal">
-            Help
-          </div>
-        </div>
         <div class="menu"></div>
       </div>
       <div class="row main-title">
@@ -116,10 +111,11 @@
           </div>                        
         </div>
         <!-- Effects columns -->
-        <div class="col-xs-12 col-sm-12 col-md-1 -offsetcol-md-6 col-lg-offset-1 col-lg-6" id='effects-section'>
+        <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-6 col-lg-offset-1  col-lg-6" id='effects-section'>
             <div class='row'>
               <div class= "col-xs-12 col-sm-12 col-md-12 col-lg-12 section-header medium-font">
                 Cash flow Effects
+                <i class="glyphicon glyphicon-question-sign help-icon" data-toggle="modal" data-target="#help-cf-modal"></i>
               </div>
             </div>
 
@@ -251,6 +247,7 @@
           <div class="row">
             <div class= "col-lg-12 section-header medium-font">
               Indicators
+              <i class="glyphicon glyphicon-question-sign help-icon" data-toggle="modal" data-target="#help-indicator-modal"></i>
             </div>
           </div>
           <div class='row indicator-row'>
@@ -310,104 +307,116 @@
         </div>
       </div>
     </div>
-    <!-- Help Modal -->
-    <div class="modal fade" id="help-modal" tabindex="-1">
+
+     <!-- help indicators modal -->
+    <div class="modal fade" id="help-indicator-modal" tabindex="-2">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="help-modal-title heavy-font">Cash is King Calculator</h4>
+            <h4 class="modal-title" id="help-modal-title heavy-font">Indicators</h4>
           </div>
-           <div class="modal-body">
-            <p class="medium-font">Here are the explainations for the various formulas used in this calculator!</p>
-            <div class = "section-header help-section"> Cash Flow effects</div>
+          <div class="modal-body">
+              <h4 class = "heavy-font help-title">Gross Margin</h4>
+              <p class="light-font help-description">Gross margin percentage measures the relationship between sales revenue and cost of sales and indicates the portion of a dollar of sales that contributes to overall profit.</p>
+              <p class="heavy-font help-formula">Formula : [(Revenue - COGS)/ Revenue] x 100</p>
 
-              <h4 class = "heavy-font help-title">Decrease COGS</h1>
-              <p class="medium-font help-description">Changes in cash flow when COGS is reduced.</p>
+              <h4 class = "heavy-font help-title">Net Profit before Tax (EBIT) Margin</h4>
+              <p class="light-font help-description">EBIT margin measure the relationship between sales revenue and earnings before tax and indicate the portion of a dollar of sales that contributes to overall earnings before tax.</p>
+              <p class="heavy-font help-formula">Formula : [(Revenue - COGS - Operating & Other Expenses - Non-Cash Expenses )/ Revenue] x 100</p>
+
+              <h4 class = "heavy-font help-title">Net Profit before Tax, Depreciation and Amortization (EBITDA) Margin </h4>
+              <p class="light-font help-description">EBITDA margin measure the operating profitability as a percentage of its total revenue. EBITDA can be used to analyze and compare profitability between companies and industries because it eliminates the effects of financing and accounting decisions. </p>
+              <p class="heavy-font help-formula">Formula : [(Revenue - COGS - Operating & Other Expenses )/ Revenue] x 100 </p>
+
+              <h4 class = "heavy-font help-title">Investment in Working Capital - per $1 Revenue</h4>
+              <p class="light-font help-description">Investment in working capital per revenue shows the amount of dollars of working capital that are necessary to generate one dollar of sales.</p>
+              <p class="heavy-font help-formula">Formula : [(Accounts Receivables + Inventory - Accounts Payables )/(Revenue x 12/ Time period)]</p>
+
+              <h4 class = "heavy-font help-title">Investment in Working Capital - per $1 EBITDA</h4>
+              <p class="light-font help-description">Working capital Per EBITDA shows the amount of dollars of working capital that are necessary to generate one dollar of EBITDA.</p>
+              <p class="heavy-font help-formula">Formula : [(Accounts Receivables + Inventory - Accounts Payables )/(EBITDA x 12/ Time period )]</p>
+
+              <h4 class = "heavy-font help-title">Marginal Cash Flow per $1 Revenue</h4>
+              <p class="light-font help-description">Marginal cash flow per revenue shows the amount of dollars of marginal cash flow that are necessary to generate one dollar of revenue. Marginal cash flow is the cash flow available after direct costs to meet overheads and profits requirements. </p>
+              <p class="heavy-font help-formula">Formula : (Revenue - COGS - Accounts Receivables - Inventory + Accounts Payables)/ (Revenue x 12/ Time period )</p>
+
+              <h4 class = "heavy-font help-title">Marginal Cash Flow per EBITDA</h4>
+              <p class="light-font help-description">Marginal cash flow per EBITDA shows the amount of dollars of marginal cash flow that are necessary to generate one dollar of EBITDA. Marginal cash flow is the cash flow available after direct costs to meet overheads and profits requirements.</p>
+              <p class="heavy-font help-formula">Formula : (Revenue - COGS - Accounts Receivables - Inventory + Accounts Payables)/ [(Revenue - COGS - Operating & Other Expenses) x 12/ Time period]</p>
+
+              <h4 class = "heavy-font help-title">Days Sales Outstanding</h4>
+              <p class="light-font help-description">Days sales outstanding calculates how many days’ receivables are held before collected. It measures the efficiency of a company’s credit policies.</p>
+              <p class="heavy-font help-formula">Formula : [Accounts Receivables /(Revenue x 12 / Time period)] x 365</p>
+
+              <h4 class = "heavy-font help-title">Days Inventory Outstanding </h4>
+              <p class="light-font help-description">Days inventory outstanding calculates how many days inventory are held (on average) before it is sold. It measures the efficiency of a company’s inventory management.</p>
+              <p class="heavy-font help-formula">Formula : [Inventory /(COGS x 12 / Time period)] x 365</p>
+
+              <h4 class = "heavy-font help-title">Days Payables  Outstanding</h4>
+              <p class="light-font help-description">It is a measure of the average number of days the company takes to pay its vendors.</p>
+              <p class="heavy-font help-formula">Formula : [Accounts Payables  /(COGS x 12 / Time period)] x 365</p>
+
+              <h4 class = "heavy-font help-title">Cash Conversion Cycle</h4>
+              <p class="light-font help-description">Cash convention cycle provides a snapshot of the company’s ability to turn accounts receivable and inventory into cash, less payments to vendors.</p>
+              <p class="heavy-font help-formula">Formula : Days Sales Outstanding + Days Inventory Outstanding - Days Payables Outstanding</p>
+              <button class="close-help-btn btn btn-primary center-block" data-dismiss="modal"> Close </button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Help CF Modal -->
+    <div class="modal fade" id="help-cf-modal" tabindex="-1">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="help-modal-title heavy-font">Cash Flow Effects</h4>
+          </div>
+          <div class="modal-body">
+              <h4 class = "heavy-font help-title">Decrease COGS</h4>
+              <p class="light-font help-description">Changes in cash flow when COGS is reduced.</p>
               <p class="heavy-font help-formula">Formula : (COGS + Inventory - Accounts Payable) x % Change</p>
 
 
-              <h4 class = "heavy-font help-title">Reduce Operating & Other Expenses</h1>
-              <p class="medium-font help-description">Changes in cash flow when operating & other expenses is reduced.</p>
+              <h4 class = "heavy-font help-title">Reduce Operating & Other Expenses</h4>
+              <p class="light-font help-description">Changes in cash flow when operating & other expenses is reduced.</p>
               <p class="heavy-font help-formula">Formula : Overheads x % Change</p>
 
 
-              <h4 class = "heavy-font help-title">Increase Sales Price </h1>
-              <p class="medium-font help-description">Changes in cash flow when selling price is increased.</p>
+              <h4 class = "heavy-font help-title">Increase Sales Price </h4>
+              <p class="light-font help-description">Changes in cash flow when selling price is increased.</p>
               <p class="heavy-font help-formula">Formula : (Revenue - Accounts Receivable) x  % Change</p>
 
 
-              <h4 class = "heavy-font help-title">Increase Sales Volume</h1>
-              <p class="medium-font help-description">Changes in cash flow when sales volume is increased.</p>
+              <h4 class = "heavy-font help-title">Increase Sales Volume</h4>
+              <p class="light-font help-description">Changes in cash flow when sales volume is increased.</p>
               <p class="heavy-font help-formula">Formula : (Revenue - COGS - Accounts Receivable - Inventory + Accounts Payable) x  % Change</p>
 
 
 
-              <h4 class = "heavy-font help-title">Reduce Debtors</h1>
-              <p class="medium-font help-description">Changes in cash flow when debt collection days are shortened.</p>
+              <h4 class = "heavy-font help-title">Reduce Debtors</h4>
+              <p class="light-font help-description">Changes in cash flow when debt collection days are shortened.</p>
               <p class="heavy-font help-formula">Formula : Accounts Receivable - [(Days Sales Outstanding - Days Change) x  (Revenue / 365) x  (12/ Time period) ]</p>
 
 
-              <h4 class = "heavy-font help-title">Reduce Inventory</h1>
-              <p class="medium-font help-description">Changes in cash flow when inventory turnover days are shortened.</p>
-              <p class="heavy-font help-formula">Formula : Inventory - [(Days Inventory Outstanding - Days Change) * (COGS / 365) x  (12/ Time period) ]</p>
+              <h4 class = "heavy-font help-title">Reduce Inventory</h4>
+              <p class="light-font help-description">Changes in cash flow when inventory turnover days are shortened.</p>
+              <p class="heavy-font help-formula">Formula : Inventory - [(Days Inventory Outstanding - Days Change) x  (COGS / 365) x  (12/ Time period) ]</p>
 
 
-              <h4 class = "heavy-font help-title">Increase Creditors</h1>
-              <p class="medium-font help-description">Changes in cash flow when inventory turnover days are lengthened.</p>
+              <h4 class = "heavy-font help-title">Increase Creditors</h4>
+              <p class="light-font help-description">Changes in cash flow when inventory turnover days are lengthened.</p>
               <p class="heavy-font help-formula">Formula : Accounts Payable - [(Days Payable Outstanding - Days Change) x (COGS / 365) x  (12 / Time period)]</p>
-
-
-            <div class = "section-header help-section"> Indicators</div>
-              <h4 class = "heavy-font help-title">Gross Margin</h1>
-              <p class="medium-font help-description">Gross margin percentage measures the relationship between sales revenue and cost of sales and indicates the portion of a dollar of sales that contributes to overall profit.</p>
-              <p class="heavy-font help-formula">Formula : [(Revenue - COGS)/ Revenue] x 100</p>
-
-              <h4 class = "heavy-font help-title">Net Profit before Tax (EBIT) Margin</h1>
-              <p class="medium-font help-description">EBIT margin measure the relationship between sales revenue and
-earnings before tax and indicate the portion of a dollar of sales that contributes to overall earnings before tax.</p>
-              <p class="heavy-font help-formula">Formula : [(Revenue - COGS - Operating & Other Expenses - Non-Cash Expenses )/ Revenue] x 100</p>
-
-              <h4 class = "heavy-font help-title">Net Profit before Tax, Depreciation and Amortization (EBITDA) Margin </h1>
-              <p class="medium-font help-description">EBITDA margin measure the operating profitability as a percentage of its total revenue. EBITDA can be used to analyze and compare profitability between companies and industries because it eliminates the effects of financing and accounting decisions. </p>
-              <p class="heavy-font help-formula">Formula : [(Revenue - COGS - Operating & Other Expenses )/ Revenue] x 100 </p>
-
-              <h4 class = "heavy-font help-title">Investment in Working Capital - per $1 Revenue</h1>
-              <p class="medium-font help-description">Investment in working capital per revenue shows the amount of dollars of working capital that are necessary to generate one dollar of sales.</p>
-              <p class="heavy-font help-formula">Formula : [(Accounts Receivables + Inventory - Accounts Payables )/(Revenue *12/ Time period)]</p>
-
-              <h4 class = "heavy-font help-title">Investment in Working Capital - per $1 EBITDA</h1>
-              <p class="medium-font help-description">Working capital Per EBITDA shows the amount of dollars of working capital that are necessary to generate one dollar of EBITDA.</p>
-              <p class="heavy-font help-formula">Formula : [(Accounts Receivables + Inventory - Accounts Payables )/(EBITDA *12/ Time period )]</p>
-
-              <h4 class = "heavy-font help-title">Marginal Cash Flow per $1 Revenue</h1>
-              <p class="medium-font help-description">Marginal cash flow per revenue shows the amount of dollars of marginal cash flow that are necessary to generate one dollar of revenue. Marginal cash flow is the cash flow available after direct costs to meet overheads and profits requirements. </p>
-              <p class="heavy-font help-formula">Formula : (Revenue - COGS - Accounts Receivables - Inventory + Accounts Payables)/ (Revenue *12/ Time period )</p>
-
-              <h4 class = "heavy-font help-title">Marginal Cash Flow per EBITDA</h1>
-              <p class="medium-font help-description">Marginal cash flow per EBITDA shows the amount of dollars of marginal cash flow that are necessary to generate one dollar of EBITDA. Marginal cash flow is the cash flow available after direct costs to meet overheads and profits requirements.</p>
-              <p class="heavy-font help-formula">Formula : (Revenue - COGS - Accounts Receivables - Inventory + Accounts Payables)/ [(Revenue - COGS - Operating & Other Expenses) *12/ Time period]</p>
-
-              <h4 class = "heavy-font help-title">Days Sales Outstanding</h1>
-              <p class="medium-font help-description">Days sales outstanding calculates how many days’ receivables are held before collected. It measures the efficiency of a company’s credit policies.</p>
-              <p class="heavy-font help-formula">Formula : [Accounts Receivables /(Revenue x 12 / Time period)] x 365</p>
-
-              <h4 class = "heavy-font help-title">Days Inventory Outstanding </h1>
-              <p class="medium-font help-description">Days inventory outstanding calculates how many days inventory are held (on average) before it is sold. It measures the efficiency of a company’s inventory management.</p>
-              <p class="heavy-font help-formula">Formula : [Inventory /(COGS x 12 / Time period)] x 365</p>
-
-              <h4 class = "heavy-font help-title">Days Payables  Outstanding</h1>
-              <p class="medium-font help-description">It is a measure of the average number of days the company takes to pay its vendors.</p>
-              <p class="heavy-font help-formula">Formula : [Accounts Payables  /(COGS x 12 / Time period)] x 365</p>
-
-              <h4 class = "heavy-font help-title">Cash Conversion Cycle</h1>
-              <p class="medium-font help-description">Cash convention cycle provides a snapshot of the company’s ability to turn accounts receivable and inventory into cash, less payments to vendors.</p>
-              <p class="heavy-font help-formula">Formula : Days Sales Outstanding + Days Inventory Outstanding - Days Payables Outstanding</p>
               <button class="close-help-btn btn btn-primary center-block" data-dismiss="modal"> Close </button>
-
-           </div>
-        </div>
+          </div>
       </div>
+    </div>
+  </div>
+   
+
+
+
   </body>
 
 </html>

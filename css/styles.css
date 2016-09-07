@@ -20,7 +20,10 @@
 }
 
 /*Global CSS Classes*/
-
+.help-icon{
+  font-size: 0.8em;
+  padding: 5px;
+}
 .section-header{
   background-color: #55A4DE;
   height:40px;
@@ -95,9 +98,6 @@ input[type=number]::-webkit-outer-spin-button {
   align-items: center;
   justify-content:center;
   height:130px;
-}
-.help-text{
-  font-size: 2em !important;
 }
 
 /*Business info related CSS*/
@@ -205,17 +205,22 @@ input[type=number]::-webkit-outer-spin-button {
   }
 
   .help-title{
-    text-decoration: underline;
     padding-top: 5px;
     color: #012742;
+    border-bottom: 1px solid black;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
   }
 
   .help-description{
-    margin-bottom: 0px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+
   }
 
   .help-formula{
-    margin-bottom: 5px
+    margin-bottom: 5px;
+    font-size:1.1em;
   }
 
   .close-help-btn{
@@ -228,7 +233,7 @@ input[type=number]::-webkit-outer-spin-button {
 and (min-device-width : 321px) 
 and (max-device-width : 667px) 
 and (orientation : portrait) { 
-
+  
   .field-label, .unit-label, .form-control, .effect-value, .unit-label, .indicator-field{
   font-size:0.7em !important;
   }
