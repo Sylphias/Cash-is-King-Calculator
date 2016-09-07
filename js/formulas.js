@@ -30,9 +30,9 @@ function MarginalCFRevenue(gross_margin, investment_wc_rev){
 }    
 
 //Marginal Cash Flow per EBITDA  
-function MarginalCFEbitda(ebitda, revenue,cogs,accounts_receivable,inventory,accounts_payable,opr_exp){
+function MarginalCFEbitda(time_period, revenue,cogs,accounts_receivable,inventory,accounts_payable,opr_exp){
   // return ((revenue-cogs-accounts_receivable-inventory+accounts_payable)/ebitda)*100
-  return ((revenue-cogs-accounts_receivable-inventory+accounts_payable)/(revenue-cogs-opr_exp))
+  return ((revenue-cogs-accounts_receivable-inventory+accounts_payable)/((revenue-cogs-opr_exp)*12/time_period))
 }  
 //DSO
 function DaysSalesOutstanding(accounts_receivable,time_period,revenue){

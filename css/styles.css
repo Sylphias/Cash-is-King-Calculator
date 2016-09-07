@@ -177,7 +177,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 /*Font Adjustments for iPhone 6 Sized screens*/
 @media only screen 
-and (min-device-width : 375px) 
+and (min-device-width : 321px) 
 and (max-device-width : 667px) 
 and (orientation : portrait) { 
 

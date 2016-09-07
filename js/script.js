@@ -74,7 +74,7 @@ function Calculate(){
   $('#wc_rev').autoNumeric('set', WorkingCapRev(acct_receivable,inventory,acct_payable,time_period,revenue,cogs,opr_exp))
   $('#wc_ebitda').autoNumeric('set', WorkingCapEbitda(acct_receivable,inventory,acct_payable,time_period,revenue,cogs,opr_exp))
   $('#mcf_rev').autoNumeric('set', MarginalCFRevenue(parseFloat($('#gross_margin').autoNumeric('get')),parseFloat($('#wc_rev').autoNumeric('get'))))
-  $('#mcf_ebitda').autoNumeric('set', MarginalCFEbitda(parseFloat($('#ebitda').autoNumeric('get')),revenue,cogs,acct_receivable,inventory,acct_payable,opr_exp))
+  $('#mcf_ebitda').autoNumeric('set', MarginalCFEbitda(time_period,revenue,cogs,acct_receivable,inventory,acct_payable,opr_exp))
   DSO = DaysSalesOutstanding(acct_receivable,time_period,revenue)
   DIO = DaysInventoryOutstanding(inventory,time_period,cogs)
   DPO = DaysPayableOutstanding(acct_payable,time_period,cogs)
