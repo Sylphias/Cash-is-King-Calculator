@@ -18,6 +18,7 @@
   font-family:'Roboto',sans-serif;
   font-weight: 900;
 }
+
 /*Global CSS Classes*/
 
 .section-header{
@@ -44,12 +45,15 @@
   display: inline-block;
   margin-top:5px;
 }
+
 /*CSS class for unit labels*/
 .unit-label{
   font-size: 1em;
   margin-top:5px;
   padding: 0px 0px 0px 5px;
 }
+
+
 /*This removes the spinners on the number input fields*/
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -85,6 +89,15 @@ input[type=number]::-webkit-outer-spin-button {
   background-size: contain;
   margin:15px auto 0px ;
   background-repeat: no-repeat;
+}
+.help-container{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  height:130px;
+}
+.help-text{
+  font-size: 2em !important;
 }
 
 /*Business info related CSS*/
@@ -133,9 +146,7 @@ input[type=number]::-webkit-outer-spin-button {
 .add-value-btn:active, .minus-value-btn:active{
   background-color: #012742;
 }
-
-
-
+/*For the shading of the effects column*/
 .background-shading{
   background: linear-gradient(to right, white 0%, white);
   background: -webkit-linear-gradient(to right, white 0%, white);
@@ -174,6 +185,43 @@ input[type=number]::-webkit-outer-spin-button {
 .indicator-field{
   margin-top: 5px;
 }
+
+
+
+/*Modal CSS*/
+  .modal-header{
+    background-color: #012742;
+    border-radius: 5px 5px 0px 0px;
+  }
+
+  .modal-title{
+    color:white;
+    font-size: 2em;
+  }
+
+  .help-section{
+    padding: 0px 5px;
+    margin:10px 0px;
+  }
+
+  .help-title{
+    text-decoration: underline;
+    padding-top: 5px;
+    color: #012742;
+  }
+
+  .help-description{
+    margin-bottom: 0px;
+  }
+
+  .help-formula{
+    margin-bottom: 5px
+  }
+
+  .close-help-btn{
+    margin-top:15px;
+    width:150px;
+  }
 
 /*Font Adjustments for iPhone 6 Sized screens*/
 @media only screen 
