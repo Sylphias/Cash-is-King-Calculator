@@ -23,6 +23,7 @@
 .help-icon{
   font-size: 0.8em;
   padding: 5px;
+  cursor:pointer;
 }
 .section-header{
   background-color: #55A4DE;
