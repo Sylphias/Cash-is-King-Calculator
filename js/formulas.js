@@ -52,33 +52,6 @@ function CashConversionCycle(DSO,DIO,DPO){
 
 }
 
-
-//These functions are for the after column
-function Revenue(revenue, rev_increase,increase_sales_vol){
-  return revenue + (revenue * rev_increase) + (revenue *increase_sales_vol)
-}
-
-function CostOfGoodsSold(cogs, reduce_cogs, increase_sales_vol){
-  return cogs - (cogs*reduce_cogs)+ (cogs*increase_sales_vol)
-}
-
-function OperatingExpenses(opr_expense,reduce_opr_expense){
-  return opr_expense - (opr_expense*reduce_opr_expense)
-}
-
-function AccountsReceivable(accounts_receivable, rev_increase,debtor_dollars,increase_sales_vol){
-  return accounts_receivable+(accounts_receivable*rev_increase)-(accounts_receivable*debtor_dollars) +(accounts_receivable*increase_sales_vol)
-}
-
-function Inventory(inventory,reduce_cogs, inventory_dollar, increase_sales_vol){
-  return inventory-(inventory*reduce_cogs)-(inventory-inventory_dollar)+(inventory*increase_sales_vol)
-}
-
-function AccountsPayable(accounts_payable,reduce_cogs,creditor_dollars,increase_sales_vol){
-  return accounts_payable-(accounts_payable*reduce_cogs)-(accounts_payable-creditor_dollars)+(accounts_payable*increase_sales_vol)
-}
-
-
 // These formulas are for the effects column
 function COGSEffect(cogs,inventory,accounts_payable,reduce_cogs){
   return (cogs +inventory -accounts_payable)*reduce_cogs
@@ -109,3 +82,56 @@ function CreditorEffect(accounts_payable,DPO,creditor_days,cogs,months){
 }
 
 // Change to cash flow is a sum of the effects column
+
+
+//These functions are for the after column
+function RevenueAfter(revenue, rev_increase,increase_sales_vol){
+  return revenue + (revenue * rev_increase) + (revenue *increase_sales_vol)
+}
+
+function CostOfGoodsSoldAfter(cogs, reduce_cogs, increase_sales_vol){
+  return cogs - (cogs*reduce_cogs)+ (cogs*increase_sales_vol)
+}
+
+function OperatingExpensesAfter(opr_expense,reduce_opr_expense){
+  return opr_expense - (opr_expense*reduce_opr_expense)
+}
+
+function AccountsReceivableAfter(accounts_receivable, rev_increase,debtor_dollars,increase_sales_vol){
+  return accounts_receivable+(accounts_receivable*rev_increase)-(accounts_receivable-debtor_dollars) +(accounts_receivable*increase_sales_vol)
+}
+
+function InventoryAfter(inventory,reduce_cogs, inventory_dollars, increase_sales_vol){
+  return inventory-(inventory*reduce_cogs)-(inventory-inventory_dollars)+(inventory*increase_sales_vol)
+}
+
+function AccountsPayableAfter(accounts_payable,reduce_cogs,creditor_dollars,increase_sales_vol){
+  return accounts_payable-(accounts_payable*reduce_cogs)-(accounts_payable-creditor_dollars)+(accounts_payable*increase_sales_vol)
+}
+
+
+// Other Indicator formulas
+// red means reduce
+function CreditorDollars(cogs,creditors_days_changed,time_period){
+  return cogs*(creditors_days_changed/365)*(time_period/12)
+}
+
+function CreditorDaysChanged(accounts_payable,cogs,time_period,inc_creditors){
+  return ((accounts_payable/cogs)*(time_period/12)*365)+inc_creditors
+}
+
+function DebtorDollars(revenue,debtor_days_changed,time_period){
+  return revenue*(debtor_days_changed/365)*(time_period/12)
+}
+
+function DebtorDaysChanged(accounts_receivable,revenue,time_period,red_debtors){
+  return ((accounts_receivable/revenue)*(time_period/12)*365)-red_debtors
+}
+
+function InventoryDollars(cogs,inventory_days_changed,time_period){
+  return cogs*(inventory_days_changed/365)*(time_period/12)
+}
+
+function InventoryDaysChanged(inventory,cogs,time_period,red_inventory){
+  return ((inventory/cogs)*(time_period/12)*365)-red_inventory
+}

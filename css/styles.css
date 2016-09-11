@@ -110,6 +110,21 @@ input[type=number]::-webkit-outer-spin-button {
   width:100%;
 }
 
+.label-title-column{
+  border-bottom:solid 2px black;
+  padding-left: 0px !important;
+
+}
+.label-title-column > p{
+  margin: 5px 0px;
+  font-size: 1em;
+  display:inline-block;
+}
+
+.business-after{
+  padding-top: 8px;
+}
+
 /*Effects related CSS*/
 
 .effects-row{
@@ -228,61 +243,65 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top:15px;
     width:150px;
   }
+/*for all mobile devices*/
+@media only screen 
+and (min-device-width : 100px) 
+and (max-device-width : 667px) 
+and (orientation : portrait){
+  .background-shading{
+    padding-top:  12px;
+  }
+  .mobile-hide{
+    display: none;
+  }
+  .indicator-container{
+    height:20px;
+  }
+  .section-header{
+    font-size: 1.7em !important;
+    padding-top: 3px !important;
+  }
+
+  .business-row, .effects-row{
+    margin-right: -10px !important;
+    margin-bottom: 0px;
+  }
+
+  .indicator-field, .indicator-label{
+    font-size:0.8em !important;
+  }
+  .label-title-column > p{
+  font-size: 0.7em;
+  }
+  .unit-label{
+    margin-top: 10px;
+  }
+
+}
 
 /*Font Adjustments for iPhone 6 Sized screens*/
 @media only screen 
 and (min-device-width : 321px) 
 and (max-device-width : 667px) 
 and (orientation : portrait) { 
-  
-  .field-label, .unit-label, .form-control, .effect-value, .unit-label, .indicator-field{
-  font-size:0.7em !important;
-  }
-  .background-shading{
-    padding-top:  12px;
-  }
-  .indicator-field, .indicator-label{
-    font-size :0.8em !important;
+  .field-label, .unit-label, .form-control, .effect-value, .unit-label, .indicator-field, .business-after{
+    font-size:0.7em !important;
   }
   .subtotal-field, .subtotal-label{
     font-size: 1em !important;
   }
-  .business-row, .effects-row{
-    margin-right: -10px !important;
-  }
-  .section-header{
-    font-size: 1.7em !important;
-    padding-top: 3px !important;
-  }
-  .indicator-container{
-    height:20px;
-  }
+
 }
 /* For Older phones like iphone 5*/
 @media only screen 
 and (min-device-width : 150px) 
 and (max-device-width : 320px) 
 and (orientation : portrait) { 
-  .field-label, .form-control, .effect-value, .unit-label{
+  .field-label, .form-control, .effect-value, .unit-label, .business-after{
   font-size:0.6em !important;
-  }
-  .indicator-field, .indicator-label{
-    font-size:0.8em !important;
-  }
-  .background-shading{
-    padding-top:  12px;
   }
   .subtotal-field, .subtotal-label{
     font-size: 1em !important;
   }
-  .business-row, .effects-row{
-    margin-right: -10px !important;
-  }
-  .section-header{
-    font-size: 1.7em !important;
-    padding-top: 3px !important;
-  }
-  .indicator-container{
-    height:20px;
-  }
+
 }
