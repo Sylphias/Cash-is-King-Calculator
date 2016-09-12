@@ -102,6 +102,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /*Business info related CSS*/
+.business-after{
+  background-color: white !important;
+  cursor:default !important;
+
+}
 .business-row{
   height:38px;
 }
@@ -112,7 +117,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .label-title-column{
   border-bottom:solid 2px black;
-  padding-left: 0px !important;
+  padding-left: 2px !important;
 
 }
 .label-title-column > p{
@@ -121,8 +126,8 @@ input[type=number]::-webkit-outer-spin-button {
   display:inline-block;
 }
 
-.business-after{
-  padding-top: 8px;
+.after-column{
+  padding: 0px 3px !important;
 }
 
 /*Effects related CSS*/
@@ -143,7 +148,6 @@ input[type=number]::-webkit-outer-spin-button {
   color:white;
   text-align: center;  
   cursor:pointer;
-  cursor:hand;
   padding-top: 7px
 }
 .effect-input{
@@ -190,7 +194,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .input-column{
-  padding:0px !important;
+  padding: 0px 7px 0px 0px !important;
 }
 
 /* Indicator section stuffs*/
@@ -282,7 +286,7 @@ and (orientation : portrait){
 /*Font Adjustments for iPhone 6 Sized screens*/
 @media only screen 
 and (min-device-width : 321px) 
-and (max-device-width : 667px) 
+and (max-device-width : 800px) 
 and (orientation : portrait) { 
   .field-label, .unit-label, .form-control, .effect-value, .unit-label, .indicator-field, .business-after{
     font-size:0.7em !important;

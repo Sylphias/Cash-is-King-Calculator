@@ -1,9 +1,9 @@
 
 $(document).on("mobileinit",function(){
-  jQuery.mobile.autoInitializePage = false;
+  // jQuery.mobile.autoInitializePage = false;
 });
 $(document).ready(function() { 
-  jQuery.mobile.autoInitializePage = false;
+  // jQuery.mobile.autoInitializePage = false;
   $("input[type='text']").on("click", function (e) {
     e.stopPropagation();
     e.preventDefault();
@@ -98,7 +98,7 @@ function Calculate(){
 
   max_value = effect_array.reduce(max,0)
 
-  //Effects
+  //Effects calculations are here
   $('#red-cogs-effect').autoNumeric('set',effect_array[0])
   $('#red-opr-ex-effect').autoNumeric('set',effect_array[1])
   $('#inc-rev-effect').autoNumeric('set',effect_array[2])
@@ -133,9 +133,9 @@ function Calculate(){
   $('#revenue_after').autoNumeric('set',revenue_after)
   $('#cogs_after').autoNumeric('set',cogs_after)
   $('#opr_ex_after').autoNumeric('set',opr_ex_after)
-  $('#accounts_receivable_after').autoNumeric('set',accounts_receivable_after)
+  $('#accounts_receivable_after').autoNumeric('set',acct_receivable_after)
   $('#inventory_after').autoNumeric('set', inventory_after)
-  $('#accounts_payable_after').autoNumeric('set',accounts_payable_after)
+  $('#accounts_payable_after').autoNumeric('set',acct_payable_after)
   $('#non_cash_expense_after').autoNumeric('set',non_cash_expense)
 
   // Set Indicators after column
@@ -152,10 +152,25 @@ function Calculate(){
   $('#dso_after').autoNumeric('set', DSO_after)
   $('#dio_after').autoNumeric('set', DIO_after)
   $('#dpo_after').autoNumeric('set', DPO_after)
-
   $('#cash_conv_after').autoNumeric('set', CashConversionCycle(DSO_after,DIO_after,DPO_after))
 
+  if(inc_sales_vol === 0 && red_inv === 0){
+    $('#revenue_after').autoNumeric('set',revenue)
+    $('#accounts_receivable_after').autoNumeric('set',acct_receivable)
+  }
+  if(inc_sales_vol === 0 && red_cogs === 0){
+    $('#cogs_after').autoNumeric('set',cogs)
+    $('#inventory_after').autoNumeric('set', inventory)
+    $('#accounts_payable_after').autoNumeric('set',acct_payable)
+  }
+  if(red_opr_ex === 0){
+    $('#opr_ex_after').autoNumeric('set',opr_exp)
+  }
+
 }
+
+// this function ensures that if the cash flow effects is 0%, then the relevant after columns will remain 0%
+
 
 // This function changes the length of each effect's background shading in the effects column to be relative to the largest value
 function EffectsBGRelativeChange(target,value,max){

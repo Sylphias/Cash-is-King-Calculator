@@ -11,7 +11,6 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Javascript  -->
     <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="js/autoNumeric-min.js"></script>
     <script src="js/formulas.js"></script> 
@@ -70,9 +69,10 @@
             <input class="business-input cash-formatting form-control" id="revenue" type="text" pattern="\d*"/>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 after-column">
-              <div class="business-after cash-formatting" id="revenue_after" >
-              </div>
+              <input class="form-control business-after cash-formatting" id="revenue_after"  data-enhance="false" type="text" pattern="\d*" disabled="disabled">
+              </input>
             </div>
+
           </div>
           <div class="row business-row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label-column">
@@ -82,9 +82,9 @@
               <input class="business-input cash-formatting form-control" id="cogs" type="text" pattern="\d*"/>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 after-column">
-              <div class="business-after cash-formatting" id="cogs_after">
+              <input class="form-control business-after cash-formatting" id="cogs_after" data-enhance="false" type="text" pattern="\d*" disabled="disabled">
 
-              </div>
+              </input>
             </div>
           </div>
           <div class="row business-row">
@@ -95,9 +95,9 @@
               <input class="business-input cash-formatting form-control" id="opr_ex" type="text" pattern="\d*"/>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 after-column">
-              <div class="business-after cash-formatting" id="opr_ex_after">
+              <input class="form-control business-after cash-formatting" id="opr_ex_after" data-enhance="false" type="text" pattern="\d*" disabled="disabled">
 
-              </div>
+              </input>
             </div>
           </div>    
           <div class="row business-row">
@@ -108,9 +108,9 @@
               <input class="business-input cash-formatting form-control" id="accounts_receivable" type="text" pattern="\d*"/>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 after-column">
-              <div class="business-after cash-formatting" id="accounts_receivable_after">
+              <input class="form-control business-after cash-formatting" id="accounts_receivable_after" data-enhance="false" type="text" pattern="\d*" disabled="disabled">
               </div>
-            </div>
+            </input>
           </div>
           <div class="row business-row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label-column">
@@ -120,9 +120,9 @@
               <input class="business-input cash-formatting form-control" id="inventory" type="text" pattern="\d*"/>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 after-column">
-              <div class="business-after cash-formatting" id="inventory_after">
+              <input class="form-control business-after cash-formatting" id="inventory_after" data-enhance="false" type="text" pattern="\d*" disabled="disabled">
 
-              </div>
+              </input>
             </div>
           </div>   
           <div class="row business-row">
@@ -133,9 +133,9 @@
               <input class="business-input cash-formatting form-control" id="accounts_payable" type="text" pattern="\d*"/>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 after-column">
-              <div class="business-after cash-formatting" id="accounts_payable_after">
+              <input class="form-control business-after cash-formatting" id="accounts_payable_after" data-enhance="false" type="text" pattern="\d*" disabled="disabled">
 
-              </div>
+              </input>
             </div>
           </div>   
           <div class="row business-row">
@@ -146,9 +146,9 @@
               <input class="business-input cash-formatting form-control" id="non_cash_expense" type="text" pattern="\d*"/>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 after-column">
-              <div class="business-after cash-formatting" id="non_cash_expense_after">
+              <input class="form-control business-after cash-formatting" id="non_cash_expense_after" data-enhance="false" type="text" pattern="\d*" disabled="disabled">
 
-              </div>
+              </input>
             </div>
           </div>                        
         </div>
