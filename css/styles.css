@@ -206,7 +206,12 @@ input[type=number]::-webkit-outer-spin-button {
   margin-top: 5px;
 }
 
-
+/* Disclaimer Section*/
+.disclaimer-container{
+  margin-top:100px;
+  font-size: 0.7em;
+  text-align: justify;
+}
 
 /*Modal CSS*/
   .modal-header{
@@ -247,6 +252,8 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top:15px;
     width:150px;
   }
+
+
 /*for all mobile devices*/
 @media only screen 
 and (min-device-width : 100px) 
@@ -282,6 +289,8 @@ and (orientation : portrait){
   }
 
 }
+
+
 
 /*Font Adjustments for iPhone 6 Sized screens*/
 @media only screen 
