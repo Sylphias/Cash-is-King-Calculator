@@ -18,12 +18,13 @@ $(document).ready(function() {
    $(this).focus();
    $(this).get(0).setSelectionRange(0, 9999);
   });
+  console.log("Initializing")
   $('.cash-formatting').autoNumeric('init',{aSign:'$ ',aDec:'.',aSep:',',wEmpty:'zero',mDec: '0'});
   $('.decimal-formatting').autoNumeric('init',{aSign:'',aDec:'.',aSep:',',wEmpty:'zero',mDec: '0'});
-  $('.percentage-formatting').autoNumeric('init',{pSign:'s',aSign:'%',wEmpty:'zero',mDec: '0',mDec: '0'})
-  $('.negative-cash-formatting').autoNumeric('init',{aSign:'$ ',aDec:'.',aSep:',',nBracket: '(,)',wEmpty:'zero',mDec: '0'})
-  $('.negative-cash-decimal-formatting').autoNumeric('init',{aSign:'$ ',aDec:'.',aSep:',',nBracket: '(,)',wEmpty:'zero'})
-  $('.days-formatting').autoNumeric('init',{aSign:' day(s)',aDec:'.',aSep:',',wEmpty:'zero',pSign:'s',mDec: '0'})
+  $('.percentage-formatting').autoNumeric('init',{pSign:'s',aSign:'%',wEmpty:'zero',mDec: '0',mDec: '0'});
+  $('.negative-cash-formatting').autoNumeric('init',{aSign:'$ ',aDec:'.',aSep:',',nBracket: '(,)',wEmpty:'zero',mDec: '0'});
+  $('.negative-cash-decimal-formatting').autoNumeric('init',{aSign:'$ ',aDec:'.',aSep:',',nBracket: '(,)',wEmpty:'zero'});
+  $('.days-formatting').autoNumeric('init',{aSign:' day(s)',aDec:'.',aSep:',',wEmpty:'zero',pSign:'s',mDec: '0'});
   $('.subtotal-field').autoNumeric('init',{aSign:'$ ',aDec:'.',aSep:',',wEmpty:'zero',mDec: '0'});
 
   // Focus and blur to trigger formatting js
@@ -70,13 +71,13 @@ function Calculate(){
 
   //Indicators
   $('#gross_margin').autoNumeric('set', GrossMargin(revenue,cogs)*100)
-  $('#ebit').autoNumeric('set', EBIT(revenue,cogs,opr_exp,non_cash_expense)*100)
-  $('#ebitda').autoNumeric('set', EBITDA(revenue,cogs,opr_exp)*100)
+  $('#ebit').autoNumeric('set', EBIT(revenue,cogs,opr_exp)*100)
+  $('#ebitda').autoNumeric('set', EBITDA(revenue,cogs,opr_exp,non_cash_expense)*100)
   $('#wc_ebitda').autoNumeric('set', WorkingCapEbitda(acct_receivable,inventory,acct_payable,time_period,revenue,cogs,opr_exp))
   $('#mcf_ebitda').autoNumeric('set', MarginalCFEbitda(time_period,revenue,cogs,acct_receivable,inventory,acct_payable,opr_exp))
   DSO = DaysSalesOutstanding(acct_receivable,time_period,revenue)
   DIO = DaysInventoryOutstanding(inventory,time_period,cogs)
-  DPO = DaysPayableOutstanding(acct_payable,time_period,cogs)
+  DPO = DaysPayableOutstanding(acct_payable,time_period,cogs,opr_exp)
   $('#dso').autoNumeric('set', DSO)
   $('#dio').autoNumeric('set', DIO)
   $('#dpo').autoNumeric('set', DPO)
@@ -86,7 +87,7 @@ function Calculate(){
   // The purpose of this array is to get the maximum value of the effects to get the relative percentages for the shading
   effect_array = [
   COGSEffect(cogs,inventory,acct_payable,red_cogs),
-  OprExEffect(opr_exp,red_opr_ex),
+  OprExEffect(opr_exp,red_opr_ex,non_cash_expense),
   RevenueEffect(revenue,acct_receivable,inc_rev),
   SalesVolEffect(revenue,cogs,acct_receivable,inventory,acct_payable,inc_sales_vol),
   DebtorEffect(acct_receivable,DSO,red_debt,revenue,time_period),
@@ -138,13 +139,13 @@ function Calculate(){
 
   // Set Indicators after column
   $('#gross_margin_after').autoNumeric('set', GrossMargin(revenue_after,cogs_after)*100)
-  $('#ebit_after').autoNumeric('set', EBIT(revenue_after,cogs_after,opr_exp_after,non_cash_expense)*100)
-  $('#ebitda_after').autoNumeric('set', EBITDA(revenue_after,cogs_after,opr_exp_after)*100)
+  $('#ebit_after').autoNumeric('set', EBIT(revenue_after,cogs_after,opr_exp_after)*100)
+  $('#ebitda_after').autoNumeric('set', EBITDA(revenue_after,cogs_after,opr_exp_after,non_cash_expense)*100)
   $('#wc_ebitda_after').autoNumeric('set', WorkingCapEbitda(acct_receivable_after,inventory_after,acct_payable_after,time_period,revenue_after,cogs_after,opr_exp_after))
   $('#mcf_ebitda_after').autoNumeric('set', MarginalCFEbitda(time_period,revenue_after,cogs_after,acct_receivable_after,inventory_after,acct_payable_after,opr_exp_after))
   DSO_after = DaysSalesOutstanding(acct_receivable_after,time_period,revenue_after)
   DIO_after = DaysInventoryOutstanding(inventory_after,time_period,cogs_after)
-  DPO_after = DaysPayableOutstanding(acct_payable_after,time_period,cogs_after)
+  DPO_after = DaysPayableOutstanding(acct_payable_after,time_period,cogs_after,opr_exp_after)
   $('#dso_after').autoNumeric('set', DSO_after)
   $('#dio_after').autoNumeric('set', DIO_after)
   $('#dpo_after').autoNumeric('set', DPO_after)

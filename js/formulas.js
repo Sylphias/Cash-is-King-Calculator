@@ -6,12 +6,12 @@ function GrossMargin(revenue, cogs){
 } 
 
 //Net Profit before Tax (EBIT)  
-function EBIT(revenue,cogs,opr_expense,non_cash_expense){
-  return (((revenue - cogs - opr_expense - non_cash_expense)*100)/revenue)/100
+function EBIT(revenue,cogs,opr_expense){
+  return (((revenue - cogs - opr_expense )*100)/revenue)/100
 }   
 //Net Profit before Tax, Depreciation and Amortization (EBITDA)  
-function EBITDA(revenue,cogs,opr_expense){
-  return (((revenue - cogs - opr_expense)*100)/revenue)/100
+function EBITDA(revenue,cogs,opr_expense, non_cash_expense){
+  return (((revenue - cogs - opr_expense+ non_cash_expense)*100)/revenue)/100
 }  
 
 //Investment in Working Capital - per $1 Revenue 
@@ -43,8 +43,8 @@ function DaysInventoryOutstanding(inventory,time_period,cogs){
   return (inventory*365*time_period)/(cogs*12)
 }
 //DPO
-function DaysPayableOutstanding(accounts_payable,time_period, cogs){
-  return (accounts_payable*365*time_period)/(cogs*12)
+function DaysPayableOutstanding(accounts_payable,time_period, cogs, opr_exp){
+  return (accounts_payable*365*time_period)/((cogs+opr_exp)*12)
 }
 
 function CashConversionCycle(DSO,DIO,DPO){
@@ -57,8 +57,8 @@ function COGSEffect(cogs,inventory,accounts_payable,reduce_cogs){
   return (cogs +inventory -accounts_payable)*reduce_cogs
 }
 
-function OprExEffect(opr_expense,reduce_opr_expense){
-  return opr_expense*reduce_opr_expense
+function OprExEffect(opr_expense,reduce_opr_expense,non_cash_expense){
+  return (opr_expense+non_cash_expense)*reduce_opr_expense
 }
 
 function RevenueEffect(revenue,accounts_receivable,rev_increase){
