@@ -258,11 +258,15 @@ input[type=number]::-webkit-outer-spin-button {
 /*for all mobile devices*/
 @media only screen 
 and (min-device-width : 100px) 
-and (max-device-width : 800px) 
+and (max-device-width : 720px) 
 and (orientation : portrait){
+  .main-title{
+    height:90px;
+  }
+
   .title-text{
     margin-top: 0px;
-    font-size:0.5em;
+    font-size:0.8em;
   }
   .background-shading{
     padding-top:  12px;
