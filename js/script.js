@@ -68,87 +68,87 @@ function Calculate(){
   red_debt = parseFloat($('#red-debt').autoNumeric('get'))
   red_inv = parseFloat($('#red-inv').autoNumeric('get'))
   inc_creditor = parseFloat($('#inc-creditor').autoNumeric('get'))
-  if(time_period != 0 && revenue != 0 && cogs != 0 && opr_exp != 0 ){
-  //Indicators
-  $('#gross_margin').autoNumeric('set', GrossMargin(revenue,cogs)*100)
-  $('#ebit').autoNumeric('set', EBIT(revenue,cogs,opr_exp)*100)
-  $('#ebitda').autoNumeric('set', EBITDA(revenue,cogs,opr_exp,non_cash_expense)*100)
-  $('#wc_ebitda').autoNumeric('set', WorkingCapEbitda(acct_receivable,inventory,acct_payable,time_period,revenue,cogs,opr_exp))
-  $('#mcf_ebitda').autoNumeric('set', MarginalCFEbitda(time_period,revenue,cogs,acct_receivable,inventory,acct_payable,opr_exp))
-  DSO = DaysSalesOutstanding(acct_receivable,time_period,revenue)
-  DIO = DaysInventoryOutstanding(inventory,time_period,cogs)
-  DPO = DaysPayableOutstanding(acct_payable,time_period,cogs,opr_exp)
-  $('#dso').autoNumeric('set', DSO)
-  $('#dio').autoNumeric('set', DIO)
-  $('#dpo').autoNumeric('set', DPO)
+  if(time_period != 0 && revenue != 0 && cogs != 0){
+    //Indicators
+    $('#gross_margin').autoNumeric('set', GrossMargin(revenue,cogs)*100)
+    $('#ebit').autoNumeric('set', EBIT(revenue,cogs,opr_exp)*100)
+    $('#ebitda').autoNumeric('set', EBITDA(revenue,cogs,opr_exp,non_cash_expense)*100)
+    $('#wc_ebitda').autoNumeric('set', WorkingCapEbitda(acct_receivable,inventory,acct_payable,time_period,revenue,cogs,opr_exp))
+    $('#mcf_ebitda').autoNumeric('set', MarginalCFEbitda(time_period,revenue,cogs,acct_receivable,inventory,acct_payable,opr_exp))
+    DSO = DaysSalesOutstanding(acct_receivable,time_period,revenue)
+    DIO = DaysInventoryOutstanding(inventory,time_period,cogs)
+    DPO = DaysPayableOutstanding(acct_payable,time_period,cogs,opr_exp)
+    $('#dso').autoNumeric('set', DSO)
+    $('#dio').autoNumeric('set', DIO)
+    $('#dpo').autoNumeric('set', DPO)
 
-  $('#cash_conv').autoNumeric('set', CashConversionCycle(DSO,DIO,DPO))
+    $('#cash_conv').autoNumeric('set', CashConversionCycle(DSO,DIO,DPO))
 
-  // The purpose of this array is to get the maximum value of the effects to get the relative percentages for the shading
-  effect_array = [
-  COGSEffect(cogs,inventory,acct_payable,red_cogs),
-  OprExEffect(opr_exp,red_opr_ex,non_cash_expense),
-  RevenueEffect(revenue,acct_receivable,inc_rev),
-  SalesVolEffect(revenue,cogs,acct_receivable,inventory,acct_payable,inc_sales_vol),
-  DebtorEffect(acct_receivable,DSO,red_debt,revenue,time_period),
-  InventoryEffect(inventory,DIO,red_inv,cogs,time_period),
-  CreditorEffect(acct_payable,DPO,inc_creditor,cogs,time_period)
-  ]
+    // The purpose of this array is to get the maximum value of the effects to get the relative percentages for the shading
+    effect_array = [
+    COGSEffect(cogs,inventory,acct_payable,red_cogs),
+    OprExEffect(opr_exp,red_opr_ex,non_cash_expense),
+    RevenueEffect(revenue,acct_receivable,inc_rev),
+    SalesVolEffect(revenue,cogs,acct_receivable,inventory,acct_payable,inc_sales_vol),
+    DebtorEffect(acct_receivable,DSO,red_debt,revenue,time_period),
+    InventoryEffect(inventory,DIO,red_inv,cogs,time_period),
+    CreditorEffect(acct_payable,DPO,inc_creditor,cogs,time_period)
+    ]
 
-  max_value = effect_array.reduce(max,0)
+    max_value = effect_array.reduce(max,0)
 
-  //Effects calculations are here
-  $('#red-cogs-effect').autoNumeric('set',effect_array[0])
-  $('#red-opr-ex-effect').autoNumeric('set',effect_array[1])
-  $('#inc-rev-effect').autoNumeric('set',effect_array[2])
-  $('#inc-sales-vol-effect').autoNumeric('set',effect_array[3])
-  $('#red-debt-effect').autoNumeric('set',effect_array[4])
-  $('#red-inv-effect').autoNumeric('set',effect_array[5])
-  $('#inc-creditor-effect').autoNumeric('set',effect_array[6])
-  $('#total-cf-change').autoNumeric('set',effect_array.reduce(add,0))
-  if (effect_array.length) {
-    for(i=0; i<effect_array.length; i++){
-      EffectsBGRelativeChange($('#effects-section').find('.background-shading')[i],effect_array[i],max_value)
+    //Effects calculations are here
+    $('#red-cogs-effect').autoNumeric('set',effect_array[0])
+    $('#red-opr-ex-effect').autoNumeric('set',effect_array[1])
+    $('#inc-rev-effect').autoNumeric('set',effect_array[2])
+    $('#inc-sales-vol-effect').autoNumeric('set',effect_array[3])
+    $('#red-debt-effect').autoNumeric('set',effect_array[4])
+    $('#red-inv-effect').autoNumeric('set',effect_array[5])
+    $('#inc-creditor-effect').autoNumeric('set',effect_array[6])
+    $('#total-cf-change').autoNumeric('set',effect_array.reduce(add,0))
+    if (effect_array.length) {
+      for(i=0; i<effect_array.length; i++){
+        EffectsBGRelativeChange($('#effects-section').find('.background-shading')[i],effect_array[i],max_value)
+      }
     }
-  }
 
-  // This area is for all the calculations for the after columns
-  creditor_days_changed = CreditorDaysChanged(acct_payable,cogs,time_period,inc_creditor)
-  debtor_days_changed = DebtorDaysChanged(acct_receivable,revenue,time_period,red_debt)
-  inventory_days_changed = InventoryDaysChanged(inventory,cogs,time_period,red_inv)
-  creditor_dollars = CreditorDollars(cogs,creditor_days_changed,time_period)
-  debtor_dollars= DebtorDollars(revenue,debtor_days_changed,time_period)
-  inventory_dollars= InventoryDollars(cogs,inventory_days_changed, time_period)
+    // This area is for all the calculations for the after columns
+    creditor_days_changed = CreditorDaysChanged(acct_payable,cogs,time_period,inc_creditor)
+    debtor_days_changed = DebtorDaysChanged(acct_receivable,revenue,time_period,red_debt)
+    inventory_days_changed = InventoryDaysChanged(inventory,cogs,time_period,red_inv)
+    creditor_dollars = CreditorDollars(cogs,creditor_days_changed,time_period)
+    debtor_dollars= DebtorDollars(revenue,debtor_days_changed,time_period)
+    inventory_dollars= InventoryDollars(cogs,inventory_days_changed, time_period)
 
 
-  revenue_after= RevenueAfter(revenue, inc_rev,inc_sales_vol)
-  cogs_after= CostOfGoodsSoldAfter(cogs,red_cogs, inc_sales_vol)
-  opr_exp_after= OperatingExpensesAfter(opr_exp, red_opr_ex)
-  acct_receivable_after= AccountsReceivableAfter(acct_receivable, inc_rev, debtor_dollars,inc_sales_vol)
-  inventory_after= InventoryAfter(inventory,red_cogs,inventory_dollars, inc_sales_vol)
-  acct_payable_after= AccountsPayableAfter(acct_payable,red_cogs, creditor_dollars,inc_sales_vol)
-  
-  // Set Key Business Indicators after column
-  $('#revenue_after').autoNumeric('set',revenue_after)
-  $('#cogs_after').autoNumeric('set',cogs_after)
-  $('#opr_ex_after').autoNumeric('set',opr_ex_after)
-  $('#accounts_receivable_after').autoNumeric('set',acct_receivable_after)
-  $('#inventory_after').autoNumeric('set', inventory_after)
-  $('#accounts_payable_after').autoNumeric('set',acct_payable_after)
+    revenue_after= RevenueAfter(revenue, inc_rev,inc_sales_vol)
+    cogs_after= CostOfGoodsSoldAfter(cogs,red_cogs, inc_sales_vol)
+    opr_exp_after= OperatingExpensesAfter(opr_exp, red_opr_ex)
+    acct_receivable_after= AccountsReceivableAfter(acct_receivable, inc_rev, debtor_dollars,inc_sales_vol)
+    inventory_after= InventoryAfter(inventory,red_cogs,inventory_dollars, inc_sales_vol)
+    acct_payable_after= AccountsPayableAfter(acct_payable,red_cogs, creditor_dollars,inc_sales_vol)
+    
+    // Set Key Business Indicators after column
+    $('#revenue_after').autoNumeric('set',revenue_after)
+    $('#cogs_after').autoNumeric('set',cogs_after)
+    $('#opr_ex_after').autoNumeric('set',opr_ex_after)
+    $('#accounts_receivable_after').autoNumeric('set',acct_receivable_after)
+    $('#inventory_after').autoNumeric('set', inventory_after)
+    $('#accounts_payable_after').autoNumeric('set',acct_payable_after)
 
-  // Set Indicators after column
-  $('#gross_margin_after').autoNumeric('set', GrossMargin(revenue_after,cogs_after)*100)
-  $('#ebit_after').autoNumeric('set', EBIT(revenue_after,cogs_after,opr_exp_after)*100)
-  $('#ebitda_after').autoNumeric('set', EBITDA(revenue_after,cogs_after,opr_exp_after,non_cash_expense)*100)
-  $('#wc_ebitda_after').autoNumeric('set', WorkingCapEbitda(acct_receivable_after,inventory_after,acct_payable_after,time_period,revenue_after,cogs_after,opr_exp_after))
-  $('#mcf_ebitda_after').autoNumeric('set', MarginalCFEbitda(time_period,revenue_after,cogs_after,acct_receivable_after,inventory_after,acct_payable_after,opr_exp_after))
-  DSO_after = DaysSalesOutstanding(acct_receivable_after,time_period,revenue_after)
-  DIO_after = DaysInventoryOutstanding(inventory_after,time_period,cogs_after)
-  DPO_after = DaysPayableOutstanding(acct_payable_after,time_period,cogs_after,opr_exp_after)
-  $('#dso_after').autoNumeric('set', DSO_after)
-  $('#dio_after').autoNumeric('set', DIO_after)
-  $('#dpo_after').autoNumeric('set', DPO_after)
-  $('#cash_conv_after').autoNumeric('set', CashConversionCycle(DSO_after,DIO_after,DPO_after))
+    // Set Indicators after column
+    $('#gross_margin_after').autoNumeric('set', GrossMargin(revenue_after,cogs_after)*100)
+    $('#ebit_after').autoNumeric('set', EBIT(revenue_after,cogs_after,opr_exp_after)*100)
+    $('#ebitda_after').autoNumeric('set', EBITDA(revenue_after,cogs_after,opr_exp_after,non_cash_expense)*100)
+    $('#wc_ebitda_after').autoNumeric('set', WorkingCapEbitda(acct_receivable_after,inventory_after,acct_payable_after,time_period,revenue_after,cogs_after,opr_exp_after))
+    $('#mcf_ebitda_after').autoNumeric('set', MarginalCFEbitda(time_period,revenue_after,cogs_after,acct_receivable_after,inventory_after,acct_payable_after,opr_exp_after))
+    DSO_after = DaysSalesOutstanding(acct_receivable_after,time_period,revenue_after)
+    DIO_after = DaysInventoryOutstanding(inventory_after,time_period,cogs_after)
+    DPO_after = DaysPayableOutstanding(acct_payable_after,time_period,cogs_after,opr_exp_after)
+    $('#dso_after').autoNumeric('set', DSO_after)
+    $('#dio_after').autoNumeric('set', DIO_after)
+    $('#dpo_after').autoNumeric('set', DPO_after)
+    $('#cash_conv_after').autoNumeric('set', CashConversionCycle(DSO_after,DIO_after,DPO_after))
 }
 
   $('#non_cash_expense_after').autoNumeric('set',non_cash_expense)

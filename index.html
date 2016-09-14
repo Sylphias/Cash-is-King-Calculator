@@ -22,16 +22,21 @@
     <!-- This is the header portion of the website -->
     <div class="container-fluid header-container">
       <div class="row header">
-        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 logo-container">
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 logo-container">
           <div class="cp-logo"></div>
+        </div>
+        <div class="main-title .mobile-hide col-md-1 col-lg-1">
+        </div>
+        <div class="main-title col-xs-12 col-sm-12 col-md-5 col-lg-5 ">
+          <div class="title-text heavy-font ">
+          Cash is King
+          </div>
+        </div>
+        <div class="main-title .mobile-hide col-md-4 col-lg-4">
         </div>
         <div class="menu"></div>
       </div>
-      <div class="row main-title">
-        <div class="title-text medium-font ">
-        Cash is King
-        </div>
-      </div>
+      
     </div>
     <!-- Main Body of calculator -->
     <div class="container">
@@ -326,7 +331,7 @@
           <!-- Second Row  -->
 
           <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
-            <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">Marginal Cash Flow </br>(Per EBITDA):</div>
+            <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">Marginal Cash Flow </br>- Per $1 EBITDA:</div>
             <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-decimal-formatting heavy-font'id="mcf_ebitda">0</div>
             <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-decimal-formatting heavy-font'id="mcf_ebitda_after">0</div>
           </div>
@@ -396,7 +401,7 @@
               <p class="heavy-font help-formula">Formula : [(Revenue - COGS - Operating & Other Expenses + Non-Cash Expenses)/ Revenue] x 100 </p>
 
               <h4 class = "heavy-font help-title">Investment in Working Capital - per $1 EBITDA</h4>
-              <p class="light-font help-description">Working capital Per EBITDA shows the amount of dollars of working capital that are necessary to generate one dollar of EBITDA.</p>
+              <p class="light-font help-description">Working capital Per EBITDA shows the amount of dollars which would be held as working capital for one dollar of EBITDA. A lower positive value is better.  </p>
               <p class="heavy-font help-formula">Formula : [(Accounts Receivables + Inventory - Accounts Payables )/(EBITDA x 12/ Time period )]</p>
 
               <h4 class = "heavy-font help-title">Marginal Cash Flow per EBITDA</h4>
@@ -413,7 +418,8 @@
 
               <h4 class = "heavy-font help-title">Days Payables  Outstanding</h4>
               <p class="light-font help-description">It is a measure of the average number of days the company takes to pay its vendors. A lower number of days payable outstanding shows that the vendors are being paid on a timely manner.</p>
-              <p class="heavy-font help-formula">Formula : [Accounts Payables  /(COGS x 12 / Time period)] x 365</p>
+              <p class="heavy-font help-formula">Formula : : {Accounts Payables  /[(COGS + Operating & Other Expenses) x 12 / Time period]} x 365
+</p>
 
               <h4 class = "heavy-font help-title">Cash Conversion Cycle</h4>
               <p class="light-font help-description">Cash convention cycle provides a snapshot of the company’s ability to turn accounts receivable and inventory into cash, less payments to vendors. A lower number of days is better.</p>
@@ -439,7 +445,7 @@
 
               <h4 class = "heavy-font help-title">Reduce Operating & Other Expenses</h4>
               <p class="light-font help-description">Changes in cash flow when operating & other expenses is reduced. A reduction in operating & other expenses would improve cash flow position positively.</p>
-              <p class="heavy-font help-formula">Formula : Overheads x % Change</p>
+              <p class="heavy-font help-formula">Formula : (Overheads + Non-Cash Expense) x % Change</p>
 
 
               <h4 class = "heavy-font help-title">Increase Sales Price </h4>

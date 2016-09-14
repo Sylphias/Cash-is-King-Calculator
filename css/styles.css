@@ -72,9 +72,10 @@ input[type=number]::-webkit-outer-spin-button {
 .main-title{
   background-color: #012742;
   color:white;
-  font-size: 3.5em;
-  height: 72px;
-  text-align: center
+  font-size: 5.5em;
+  height: 110px;
+  text-align: center;
+  margin-top:25px;
 }
 .title-text{
   vertical-align: middle;
@@ -88,10 +89,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .cp-logo{
   background-image: url("../img/CPLogo.png");
-  width:170px;
-  height:130px;
+  width:250px;
+  height:140px;
   background-size: contain;
-  margin:15px auto 0px ;
+  margin:10px auto 0px ;
   background-repeat: no-repeat;
 }
 .help-container{
@@ -257,8 +258,12 @@ input[type=number]::-webkit-outer-spin-button {
 /*for all mobile devices*/
 @media only screen 
 and (min-device-width : 100px) 
-and (max-device-width : 667px) 
+and (max-device-width : 800px) 
 and (orientation : portrait){
+  .title-text{
+    margin-top: 0px;
+    font-size:0.5em;
+  }
   .background-shading{
     padding-top:  12px;
   }
