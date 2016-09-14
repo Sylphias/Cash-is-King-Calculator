@@ -87,11 +87,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .logo-container{
   height:inherit;
+  text-align: center;
 }
 .cp-logo{
   background-image: url("../img/CPLogo.png");
-  height:140px;
-  background-size: contain;
+  height:130px;
+  width: 180px;
+  background-size: cover;
   margin:10px auto 0px ;
   background-repeat: no-repeat;
 }
@@ -258,7 +260,7 @@ input[type=number]::-webkit-outer-spin-button {
 /*for all mobile devices*/
 @media only screen 
 and (min-device-width : 100px) 
-and (max-device-width : 720px) 
+and (max-device-width : 1000px) 
 and (orientation : portrait){
   .main-title{
     height:90px;
@@ -266,13 +268,12 @@ and (orientation : portrait){
 
   .title-text{
     margin-top: 0px;
-    font-size:0.8em;
   }
   .background-shading{
     padding-top:  12px;
   }
   .mobile-hide{
-    display: none;
+    display: none !important;
   }
   .indicator-container{
     height:20px;
@@ -309,6 +310,9 @@ and (orientation : portrait) {
   .field-label, .unit-label, .form-control, .effect-value, .unit-label, .indicator-field, .business-after{
     font-size:0.7em !important;
   }
+  .title-text{
+    font-size:0.8em;
+  }
   .subtotal-field, .subtotal-label{
     font-size: 1em !important;
   }
@@ -322,6 +326,11 @@ and (orientation : portrait) {
   .field-label, .form-control, .effect-value, .unit-label, .business-after{
   font-size:0.6em !important;
   }
+  .title-text{
+    padding-top:5px;
+    font-size:0.7em;
+  }
+
   .subtotal-field, .subtotal-label{
     font-size: 1em !important;
   }
