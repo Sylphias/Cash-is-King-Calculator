@@ -72,8 +72,9 @@ input[type=number]::-webkit-outer-spin-button {
 .main-title{
   background-color: #012742;
   color:white;
-  font-size: 5.5em;
+  font-size: 5em;
   height: 110px;
+  padding-top: 5px;
   text-align: center;
   margin-top:25px;
 }
@@ -89,7 +90,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .cp-logo{
   background-image: url("../img/CPLogo.png");
-  width:250px;
   height:140px;
   background-size: contain;
   margin:10px auto 0px ;

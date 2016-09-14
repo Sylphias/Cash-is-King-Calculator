@@ -97,16 +97,24 @@ function Calculate(){
 
     max_value = effect_array.reduce(max,0)
 
-    //Effects calculations are here
-    $('#red-cogs-effect').autoNumeric('set',effect_array[0])
-    $('#red-opr-ex-effect').autoNumeric('set',effect_array[1])
-    $('#inc-rev-effect').autoNumeric('set',effect_array[2])
-    $('#inc-sales-vol-effect').autoNumeric('set',effect_array[3])
-    $('#red-debt-effect').autoNumeric('set',effect_array[4])
-    $('#red-inv-effect').autoNumeric('set',effect_array[5])
-    $('#inc-creditor-effect').autoNumeric('set',effect_array[6])
+    //Effects calculations are here, can be refactored... done in a rush due to mingli presentation
+      $('#red-cogs-effect').autoNumeric('set',effect_array[0])
+      $('#red-opr-ex-effect').autoNumeric('set',effect_array[1])
+      $('#inc-rev-effect').autoNumeric('set',effect_array[2])
+      $('#inc-sales-vol-effect').autoNumeric('set',effect_array[3])
+    if( red_debt != 0 ){
+      $('#red-debt-effect').autoNumeric('set',effect_array[4])
+    }
+    if( red_inv != 0 ){
+      $('#red-inv-effect').autoNumeric('set',effect_array[5])
+    }
+    if( inc_creditor != 0 ){
+      $('#inc-creditor-effect').autoNumeric('set',effect_array[6])
+    }
     $('#total-cf-change').autoNumeric('set',effect_array.reduce(add,0))
-    if (effect_array.length) {
+    
+
+    if (effect_array.length && (red_cogs != 0 || red_opr_ex != 0 || inc_rev != 0 || inc_sales_vol != 0 || red_debt != 0 || red_inv != 0 || inc_creditor != 0)) {
       for(i=0; i<effect_array.length; i++){
         EffectsBGRelativeChange($('#effects-section').find('.background-shading')[i],effect_array[i],max_value)
       }
