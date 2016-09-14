@@ -18,7 +18,7 @@ $(document).ready(function() {
    $(this).focus();
    $(this).get(0).setSelectionRange(0, 9999);
   });
-  console.log("Initializing")
+
   $('.cash-formatting').autoNumeric('init',{aSign:'$ ',aDec:'.',aSep:',',wEmpty:'zero',mDec: '0'});
   $('.decimal-formatting').autoNumeric('init',{aSign:'',aDec:'.',aSep:',',wEmpty:'zero',mDec: '0'});
   $('.percentage-formatting').autoNumeric('init',{pSign:'s',aSign:'%',wEmpty:'zero',mDec: '0',mDec: '0'});
@@ -68,7 +68,7 @@ function Calculate(){
   red_debt = parseFloat($('#red-debt').autoNumeric('get'))
   red_inv = parseFloat($('#red-inv').autoNumeric('get'))
   inc_creditor = parseFloat($('#inc-creditor').autoNumeric('get'))
-
+  if(time_period != 0 && revenue != 0 && cogs != 0 && opr_exp != 0 ){
   //Indicators
   $('#gross_margin').autoNumeric('set', GrossMargin(revenue,cogs)*100)
   $('#ebit').autoNumeric('set', EBIT(revenue,cogs,opr_exp)*100)
@@ -127,7 +127,7 @@ function Calculate(){
   acct_receivable_after= AccountsReceivableAfter(acct_receivable, inc_rev, debtor_dollars,inc_sales_vol)
   inventory_after= InventoryAfter(inventory,red_cogs,inventory_dollars, inc_sales_vol)
   acct_payable_after= AccountsPayableAfter(acct_payable,red_cogs, creditor_dollars,inc_sales_vol)
-
+  
   // Set Key Business Indicators after column
   $('#revenue_after').autoNumeric('set',revenue_after)
   $('#cogs_after').autoNumeric('set',cogs_after)
@@ -135,7 +135,6 @@ function Calculate(){
   $('#accounts_receivable_after').autoNumeric('set',acct_receivable_after)
   $('#inventory_after').autoNumeric('set', inventory_after)
   $('#accounts_payable_after').autoNumeric('set',acct_payable_after)
-  $('#non_cash_expense_after').autoNumeric('set',non_cash_expense)
 
   // Set Indicators after column
   $('#gross_margin_after').autoNumeric('set', GrossMargin(revenue_after,cogs_after)*100)
@@ -150,6 +149,9 @@ function Calculate(){
   $('#dio_after').autoNumeric('set', DIO_after)
   $('#dpo_after').autoNumeric('set', DPO_after)
   $('#cash_conv_after').autoNumeric('set', CashConversionCycle(DSO_after,DIO_after,DPO_after))
+}
+
+  $('#non_cash_expense_after').autoNumeric('set',non_cash_expense)
 
   if(inc_sales_vol === 0 && red_inv === 0){
     $('#revenue_after').autoNumeric('set',revenue)
