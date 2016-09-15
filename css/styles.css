@@ -73,8 +73,8 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: #012742;
   color:white;
   font-size: 5em;
-  height: 110px;
-  padding-top: 5px;
+  height: 130px;
+  padding-top: 10px;
   text-align: center;
   margin-top:25px;
 }
@@ -86,16 +86,17 @@ input[type=number]::-webkit-outer-spin-button {
   height:130px;
 }
 .logo-container{
-  height:inherit;
+  background-color: #012742;
   text-align: center;
   padding-left: 0px !important;
+  margin-top: 25px;
 }
 .cp-logo{
   background-image: url("../img/CPLogo.png");
   height:130px;
   width: 180px;
   background-size: cover;
-  margin:10px auto 0px ;
+  margin:0px auto 0px ;
   background-repeat: no-repeat;
 }
 .help-container{
@@ -118,6 +119,9 @@ input[type=number]::-webkit-outer-spin-button {
   height:28px;
   width:100%;
 }
+.business-label{
+  font-size: 0.8em;
+}
 
 .label-title-column{
   border-bottom:solid 2px black;
@@ -126,7 +130,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .label-title-column > p{
   margin: 5px 0px;
-  font-size: 1em;
+  font-size: 0.8em;
   display:inline-block;
 }
 
@@ -258,29 +262,37 @@ input[type=number]::-webkit-outer-spin-button {
   }
 /*Font Adjustments for iPhone 6 Sized screens*/
 @media screen 
-and (min-width : 801px) 
+and (min-width : 991px) 
 and (max-width : 1200px) 
 { 
   .main-title{
-    height:100px;
+    height:130px;
+    font-size: 5.5em;
+    padding-top: 20px;
   }
   .title-text{
     font-size:0.8em;
   }
-  .field-label, .unit-label, .form-control, .effect-value, .unit-label, .indicator-field, .business-after{
-    font-size:0.9em !important;
+  .field-label, .unit-label, .form-control, .effect-value, .unit-label, .indicator-field, .business-after, .business-label{
+    font-size:0.8em !important;
   }
 }
 
 /*Font Adjustments for iPhone 6 Sized screens*/
 @media screen 
 and (min-width : 321px) 
-and (max-width : 800px) 
+and (max-width : 990px) 
 { 
-  .field-label, .unit-label, .form-control, .effect-value, .unit-label, .indicator-field, .business-after{
-    font-size:0.7em !important;
+  .logo-container{
+    background-color: white;
   }
-  .title-text{
+  .cp-logo{
+    background-image: url("../img/CPLogoOld.png");
+  }
+  .field-label, .unit-label, .form-control, .effect-value, .unit-label, .indicator-field, .business-after, .business-label{
+    font-size:0.6em !important;
+  }
+  .title-text, .label-title-column{
     font-size:0.8em;
   }
   .subtotal-field, .subtotal-label{
@@ -293,10 +305,10 @@ and (max-width : 800px)
 and (min-width : 150px) 
 and (max-width : 320px) 
 { 
-  .field-label, .form-control, .effect-value, .unit-label, .business-after{
+  .field-label, .form-control, .effect-value, .unit-label, .business-after,.business-label{
   font-size:0.6em !important;
   }
-  .title-text{
+  .title-text, .label-title-column{
     padding-top:5px;
     font-size:0.7em;
   }
