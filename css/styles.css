@@ -88,6 +88,7 @@ input[type=number]::-webkit-outer-spin-button {
 .logo-container{
   height:inherit;
   text-align: center;
+  padding-left: 0px !important;
 }
 .cp-logo{
   background-image: url("../img/CPLogo.png");
@@ -255,13 +256,64 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top:15px;
     width:150px;
   }
+/*Font Adjustments for iPhone 6 Sized screens*/
+@media screen 
+and (min-width : 801px) 
+and (max-width : 1200px) 
+{ 
+  .main-title{
+    height:100px;
+  }
+  .title-text{
+    font-size:0.8em;
+  }
+  .field-label, .unit-label, .form-control, .effect-value, .unit-label, .indicator-field, .business-after{
+    font-size:0.9em !important;
+  }
+}
+
+/*Font Adjustments for iPhone 6 Sized screens*/
+@media screen 
+and (min-width : 321px) 
+and (max-width : 800px) 
+{ 
+  .field-label, .unit-label, .form-control, .effect-value, .unit-label, .indicator-field, .business-after{
+    font-size:0.7em !important;
+  }
+  .title-text{
+    font-size:0.8em;
+  }
+  .subtotal-field, .subtotal-label{
+    font-size: 1em !important;
+  }
+
+}
+/* For Older phones like iphone 5*/
+@media screen 
+and (min-width : 150px) 
+and (max-width : 320px) 
+{ 
+  .field-label, .form-control, .effect-value, .unit-label, .business-after{
+  font-size:0.6em !important;
+  }
+  .title-text{
+    padding-top:5px;
+    font-size:0.7em;
+  }
+
+  .subtotal-field, .subtotal-label{
+    font-size: 1em !important;
+  }
+
+}
+
 
 
 /*for all mobile devices*/
-@media only screen 
-and (min-device-width : 100px) 
-and (max-device-width : 1000px) 
-and (orientation : portrait){
+@media screen 
+and (min-width : 100px) 
+and (max-width : 1000px) 
+{
   .main-title{
     height:90px;
   }
@@ -296,43 +348,6 @@ and (orientation : portrait){
   }
   .unit-label{
     margin-top: 10px;
-  }
-
-}
-
-
-
-/*Font Adjustments for iPhone 6 Sized screens*/
-@media only screen 
-and (min-device-width : 321px) 
-and (max-device-width : 800px) 
-and (orientation : portrait) { 
-  .field-label, .unit-label, .form-control, .effect-value, .unit-label, .indicator-field, .business-after{
-    font-size:0.7em !important;
-  }
-  .title-text{
-    font-size:0.8em;
-  }
-  .subtotal-field, .subtotal-label{
-    font-size: 1em !important;
-  }
-
-}
-/* For Older phones like iphone 5*/
-@media only screen 
-and (min-device-width : 150px) 
-and (max-device-width : 320px) 
-and (orientation : portrait) { 
-  .field-label, .form-control, .effect-value, .unit-label, .business-after{
-  font-size:0.6em !important;
-  }
-  .title-text{
-    padding-top:5px;
-    font-size:0.7em;
-  }
-
-  .subtotal-field, .subtotal-label{
-    font-size: 1em !important;
   }
 
 }
