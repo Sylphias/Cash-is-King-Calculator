@@ -20,8 +20,8 @@ function WorkingCapRev(accounts_receivable, inventory, accounts_payable, time_pe
 }   
 
 //Investment in Working Capital - per $1 EBITDA  
-function WorkingCapEbitda( accounts_receivable, inventory, accounts_payable, time_period,revenue,cogs,opr_expense){
-  return ((accounts_receivable+inventory-accounts_payable)*time_period)/((revenue - cogs - opr_expense)*12)
+function WorkingCapEbitda( accounts_receivable, inventory, accounts_payable, time_period,revenue,cogs,opr_expense,non_cash_expense){
+  return ((accounts_receivable+inventory-accounts_payable)*time_period)/((revenue - cogs - opr_expense + non_cash_expense)*12)
 }  
 
 //Marginal Cash Flow per $1 Revenue
@@ -30,10 +30,11 @@ function MarginalCFRevenue(gross_margin, investment_wc_rev){
 }    
 
 //Marginal Cash Flow per EBITDA  
-function MarginalCFEbitda(time_period, revenue,cogs,accounts_receivable,inventory,accounts_payable,opr_exp){
+function MarginalCFEbitda(time_period, revenue,cogs,accounts_receivable,inventory,accounts_payable,opr_exp,non_cash_expense){
   // return ((revenue-cogs-accounts_receivable-inventory+accounts_payable)/ebitda)*100
-  return ((revenue-cogs-accounts_receivable-inventory+accounts_payable)/((revenue-cogs-opr_exp)*12/time_period))
+  return ((revenue-cogs-accounts_receivable-inventory-opr_exp+accounts_payable+non_cash_expense)/((revenue-cogs-opr_exp+non_cash_expense)*12/time_period))
 }  
+
 //DSO
 function DaysSalesOutstanding(accounts_receivable,time_period,revenue){
   return (accounts_receivable*365*time_period)/(revenue*12)
@@ -43,8 +44,8 @@ function DaysInventoryOutstanding(inventory,time_period,cogs){
   return (inventory*365*time_period)/(cogs*12)
 }
 //DPO
-function DaysPayableOutstanding(accounts_payable,time_period, cogs, opr_exp){
-  return (accounts_payable*365*time_period)/((cogs+opr_exp)*12)
+function DaysPayableOutstanding(accounts_payable,time_period, cogs, opr_exp,non_cash_expense){
+  return (accounts_payable*365*time_period)/((cogs+opr_exp-non_cash_expense)*12)
 }
 
 function CashConversionCycle(DSO,DIO,DPO){
@@ -77,8 +78,8 @@ function InventoryEffect(inventory,DIO, inventory_days,cogs,months){
   return inventory-((DIO-inventory_days)* cogs / 365 * 12 / months)
 }
 
-function CreditorEffect(accounts_payable,DPO,creditor_days,cogs,months){
-  return accounts_payable-((DPO-creditor_days)* cogs / 365 * 12 / months )
+function CreditorEffect(accounts_payable,DPO,creditor_days,cogs,opr_ex,non_cash_expense,months){
+  return accounts_payable-((DPO-creditor_days)* (cogs+opr_ex-non_cash_expense) / 365 * 12 / months )
 }
 
 // Change to cash flow is a sum of the effects column
@@ -97,12 +98,12 @@ function OperatingExpensesAfter(opr_expense,reduce_opr_expense){
   return opr_expense - (opr_expense*reduce_opr_expense)
 }
 
-function AccountsReceivableAfter(accounts_receivable, rev_increase,debtor_dollars,increase_sales_vol){
-  return accounts_receivable+(accounts_receivable*rev_increase)-(accounts_receivable-debtor_dollars) +(accounts_receivable*increase_sales_vol)
+function AccountsReceivableAfter(accounts_receivable, DSO,red_debtors,revenue,months,cogs,inventory,accounts_payable,increase_sales_vol,rev_increase){
+  return accounts_receivable+(accounts_receivable-((DSO-red_debtors)*(revenue/365)*(12/months))+(revenue-cogs-accounts_receivable-inventory+accounts_payable)*increase_sales_vol+(revenue-accounts_receivable)*rev_increase)
 }
 
-function InventoryAfter(inventory,decrease_cogs, inventory_dollars, increase_sales_vol){
-  return inventory-(inventory*decrease_cogs)-(inventory-inventory_dollars)+(inventory*increase_sales_vol)
+function InventoryAfter(inventory,cogs, increase_sales_vol, DaysInventoryOutstanding, red_inventory,months){
+  return inventory+(-red_inventory+cogs*inventory)+(increase_sales_vol*inventory)+inventory((DaysInventoryOutstanding-red_inventory)*(cogs/365)*(12/months))
 }
 
 function AccountsPayableAfter(accounts_payable,decrease_cogs,creditor_dollars,increase_sales_vol){
