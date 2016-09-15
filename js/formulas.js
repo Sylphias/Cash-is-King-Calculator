@@ -6,12 +6,12 @@ function GrossMargin(revenue, cogs){
 } 
 
 //Net Profit before Tax (EBIT)  
-function EBIT(revenue,cogs,opr_expense,non_cash_expense){
-  return (((revenue - cogs - opr_expense - non_cash_expense)*100)/revenue)/100
+function EBIT(revenue,cogs,opr_expense){
+  return (((revenue - cogs - opr_expense )*100)/revenue)/100
 }   
 //Net Profit before Tax, Depreciation and Amortization (EBITDA)  
-function EBITDA(revenue,cogs,opr_expense){
-  return (((revenue - cogs - opr_expense)*100)/revenue)/100
+function EBITDA(revenue,cogs,opr_expense, non_cash_expense){
+  return (((revenue - cogs - opr_expense+ non_cash_expense)*100)/revenue)/100
 }  
 
 //Investment in Working Capital - per $1 Revenue 
@@ -43,8 +43,8 @@ function DaysInventoryOutstanding(inventory,time_period,cogs){
   return (inventory*365*time_period)/(cogs*12)
 }
 //DPO
-function DaysPayableOutstanding(accounts_payable,time_period, cogs){
-  return (accounts_payable*365*time_period)/(cogs*12)
+function DaysPayableOutstanding(accounts_payable,time_period, cogs, opr_exp){
+  return (accounts_payable*365*time_period)/((cogs+opr_exp)*12)
 }
 
 function CashConversionCycle(DSO,DIO,DPO){
@@ -57,8 +57,8 @@ function COGSEffect(cogs,inventory,accounts_payable,reduce_cogs){
   return (cogs +inventory -accounts_payable)*reduce_cogs
 }
 
-function OprExEffect(opr_expense,reduce_opr_expense){
-  return opr_expense*reduce_opr_expense
+function OprExEffect(opr_expense,reduce_opr_expense,non_cash_expense){
+  return (opr_expense+non_cash_expense)*reduce_opr_expense
 }
 
 function RevenueEffect(revenue,accounts_receivable,rev_increase){
@@ -89,8 +89,8 @@ function RevenueAfter(revenue, rev_increase,increase_sales_vol){
   return revenue + (revenue * rev_increase) + (revenue *increase_sales_vol)
 }
 
-function CostOfGoodsSoldAfter(cogs, reduce_cogs, increase_sales_vol){
-  return cogs - (cogs*reduce_cogs)+ (cogs*increase_sales_vol)
+function CostOfGoodsSoldAfter(cogs, decrease_cogs, increase_sales_vol){
+  return cogs - (cogs*decrease_cogs)+ (cogs*increase_sales_vol)
 }
 
 function OperatingExpensesAfter(opr_expense,reduce_opr_expense){
@@ -101,12 +101,12 @@ function AccountsReceivableAfter(accounts_receivable, rev_increase,debtor_dollar
   return accounts_receivable+(accounts_receivable*rev_increase)-(accounts_receivable-debtor_dollars) +(accounts_receivable*increase_sales_vol)
 }
 
-function InventoryAfter(inventory,reduce_cogs, inventory_dollars, increase_sales_vol){
-  return inventory-(inventory*reduce_cogs)-(inventory-inventory_dollars)+(inventory*increase_sales_vol)
+function InventoryAfter(inventory,decrease_cogs, inventory_dollars, increase_sales_vol){
+  return inventory-(inventory*decrease_cogs)-(inventory-inventory_dollars)+(inventory*increase_sales_vol)
 }
 
-function AccountsPayableAfter(accounts_payable,reduce_cogs,creditor_dollars,increase_sales_vol){
-  return accounts_payable-(accounts_payable*reduce_cogs)-(accounts_payable-creditor_dollars)+(accounts_payable*increase_sales_vol)
+function AccountsPayableAfter(accounts_payable,decrease_cogs,creditor_dollars,increase_sales_vol){
+  return accounts_payable-(accounts_payable*decrease_cogs)-(accounts_payable-creditor_dollars)+(accounts_payable*increase_sales_vol)
 }
 
 
