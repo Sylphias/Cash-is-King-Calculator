@@ -111,13 +111,18 @@ function Calculate(){
     if( inc_creditor != 0 ){
       $('#inc-creditor-effect').autoNumeric('set',effect_array[6])
     }
-    $('#total-cf-change').autoNumeric('set',effect_array.reduce(add,0))
+    if(red_debt != 0 || red_inv  != 0 || inc_creditor != 0 || red_cogs !=0 || red_opr_ex != 0 || inc_sales_vol != 0 || inc_rev !=0 ){
+      $('#total-cf-change').autoNumeric('set',effect_array.reduce(add,0))
+    }
     
 
     if (effect_array.length && (red_cogs != 0 || red_opr_ex != 0 || inc_rev != 0 || inc_sales_vol != 0 || red_debt != 0 || red_inv != 0 || inc_creditor != 0)) {
       for(i=0; i<effect_array.length; i++){
         EffectsBGRelativeChange($('#effects-section').find('.background-shading')[i],effect_array[i],max_value)
       }
+    }
+    else{
+      $('.background-shading').css('background','linear-gradient(to right, #55A4DE '+ 0 +'%, white)')
     }
 
     // This area is for all the calculations for the after columns
@@ -186,6 +191,9 @@ function EffectsBGRelativeChange(target,value,max){
   $(target).css('background','linear-gradient(to right, #55A4DE '+ shading_percentage +'%, white)')
 }
 
+function ResetBGShading(){
+
+}
 function add(a,b){
   return a+b;
 }
