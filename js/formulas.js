@@ -106,7 +106,7 @@ function InventoryAfter(inventory, cogs, increase_sales_vol, DIO, reduce_cogs,mo
 }
 
 function AccountsPayableAfter(accounts_payable,decrease_cogs,increase_creditors,DPO,increase_sales_vol,cogs,opr_expense,non_cash_expenses,months){
-  return accounts_payable+(accounts_payable*decrease_cogs)+(accounts_payable*increase_sales_vol)+accounts_payable-((DPO-increase_creditors)*(cogs+opr_expense-non_cash_expenses)/365*12/months)
+  return accounts_payable+(-accounts_payable*decrease_cogs)+(accounts_payable*increase_sales_vol)+accounts_payable-((DPO-increase_creditors)*(cogs+opr_expense-non_cash_expenses)/365*12/months)
 }
 
 function NonCashExpenseAfter(non_cash_expense, reduce_opr_expense){
