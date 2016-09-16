@@ -152,7 +152,7 @@ function Calculate(){
     // Set Key Business Indicators after column
     $('#revenue_after').autoNumeric('set',revenue_after)
     $('#cogs_after').autoNumeric('set',cogs_after)
-    $('#opr_ex_after').autoNumeric('set',opr_ex_after)
+    $('#opr_ex_after').autoNumeric('set',opr_exp_after)
     $('#accounts_receivable_after').autoNumeric('set',acct_receivable_after)
     $('#inventory_after').autoNumeric('set', inventory_after)
     $('#accounts_payable_after').autoNumeric('set',acct_payable_after)
