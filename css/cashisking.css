@@ -283,12 +283,6 @@ and (max-width : 1200px)
 and (min-width : 321px) 
 and (max-width : 990px) 
 { 
-  .logo-container{
-    background-color: white;
-  }
-  .cp-logo{
-    background-image: url("../img/CPLogoOld.png");
-  }
   .field-label, .unit-label, .form-control, .effect-value, .unit-label, .indicator-field, .business-after, .business-label{
     font-size:0.6em !important;
   }
@@ -324,11 +318,21 @@ and (max-width : 320px)
 /*for all mobile devices*/
 @media screen 
 and (min-width : 100px) 
-and (max-width : 1000px) 
+and (max-width : 990px) 
 {
   .main-title{
     height:90px;
   }
+  .logo-container{
+    background-color: white;
+  }
+  .container, .container-fluid{
+    padding-right: 0px !important;
+  }
+  .cp-logo{
+    background-image: url("../img/CPLogoOld.png");
+  }
+
 
   .title-text{
     margin-top: 0px;
