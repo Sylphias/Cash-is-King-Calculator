@@ -6,7 +6,7 @@
     <!-- Roboto Google Font link -->
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,500,900' rel='stylesheet' type='text/css'>
     <!-- CSS Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/cashisking.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Javascript  -->
@@ -60,7 +60,7 @@
           </div>
           <div class="row business-row">
             <div class="label-title-column col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3 col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
-              <p class ="heavy-font">Prior Year Balance</p>
+              <p class ="heavy-font">Prior Period Balance</p>
             </div>
             <div class="label-title-column col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
               <p class ="heavy-font">Before</p>
@@ -213,7 +213,7 @@
 
             <div class='row effects-row'>
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 label-column">
-                <p class="field-label medium-font">Decrease COGS</p>
+                <p class="field-label medium-font">Reduce COGS</p>
               </div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 input-column">
                 <input class="effect-input form-control percentage-formatting" id="red-cogs" type="text" pattern="\d*"/>
@@ -229,7 +229,7 @@
 
             <div class='row effects-row'>
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 label-column">
-                <p class="field-label medium-font">Decrease Operating & Other Expenses</p>
+                <p class="field-label medium-font">Reduce Operating & Other Expenses</p>
               </div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 input-column">
                 <input class="effect-input form-control percentage-formatting" id="red-opr-ex" type="text" pattern="\d*"/>
@@ -410,19 +410,19 @@
               <p class="heavy-font help-formula">Formula : [(Revenue - COGS - Operating & Other Expenses)/ Revenue] x 100</p>
 
               <h4 class = "heavy-font help-title">Net Profit before Interest & Tax, Depreciation and Amortization (EBITDA) Margin </h4>
-              <p class="light-font help-description">EBITDA margin measure the operating profitability as a percentage of its total revenue. EBITDA can be used to analyze and compare profitability between companies and industries because it eliminates the effects of financing and accounting decisions, e.g. Depreciation. </p>
+              <p class="light-font help-description">EBITDA margin measure the operating profitability as a percentage of its total revenue. EBITDA can be used to analyze and compare profitability between companies and industries because it eliminates the effects of financing and accounting decisions, e.g. Choice of depreciation policy. </p>
               <p class="heavy-font help-formula">Formula : [(Revenue - COGS - Operating & Other Expenses + Non-Cash Expenses)/ Revenue] x 100 </p>
 
               <h4 class = "heavy-font help-title">Investment in Working Capital - per $1 EBITDA</h4>
-              <p class="light-font help-description">Working capital Per EBITDA shows the amount of dollars which would be held as working capital for one dollar of EBITDA. A lower positive value is better.  </p>
+              <p class="light-font help-description">Working capital Per EBITDA shows the amount of dollars that is held up in working capital for every dollar of EBITDA. A lower value is better.  </p>
               <p class="heavy-font help-formula">Formula : [(Accounts Receivables + Inventory - Accounts Payables )/(EBITDA x 12/ Time period )]</p>
 
               <h4 class = "heavy-font help-title">Marginal Cash Flow per EBITDA</h4>
-              <p class="light-font help-description">Marginal cash flow per EBITDA shows the amount of dollars of marginal cash flow that are necessary to generate one dollar of EBITDA, i.e. cash surplus or deficit after paying operating expenses and funding working capital requirements.  A higher positive value is better. </p>
+              <p class="light-font help-description">Marginal cash flow per EBITDA shows the amount of cash generated for every dollar of EBITDA, i.e. cash surplus or deficit after paying operating expenses and funding working capital requirements.  A higher positive value is better. </p>
               <p class="heavy-font help-formula">Formula : (EBITDA – Investment in Working Capital) / (EBITDA x 12/ Time period)]</p>
 
               <h4 class = "heavy-font help-title">Days Sales Outstanding</h4>
-              <p class="light-font help-description">Days sales outstanding calculates how many days’ receivables are held before collected. It measures the efficiency of a company’s credit policies.A lower number of days sales outstanding is better.</p>
+              <p class="light-font help-description">Days sales outstanding calculates how many days' receivables are held before collected. It measures the efficiency of a company's credit policies.A lower number of days sales outstanding is better.</p>
               <p class="heavy-font help-formula">Formula : [Accounts Receivables /(Revenue x 12 / Time period)] x 365</p>
 
               <h4 class = "heavy-font help-title">Days Inventory Outstanding </h4>
@@ -452,39 +452,39 @@
             <h4 class="modal-title" id="help-modal-title heavy-font">Cash Flow Effects</h4>
           </div>
           <div class="modal-body">
-              <h4 class = "heavy-font help-title">Decrease COGS</h4>
+              <h4 class = "heavy-font help-title">Reduce COGS</h4>
               <p class="light-font help-description">Changes in cash flow when COGS is reduced. A reduction in COGS would improve cash flow position positively.</p>
               <p class="heavy-font help-formula">Formula : (COGS + Inventory - Accounts Payable) x % Change</p>
 
 
               <h4 class = "heavy-font help-title">Reduce Operating & Other Expenses</h4>
-              <p class="light-font help-description">Changes in cash flow when operating & other expenses is reduced. A reduction in operating & other expenses would improve cash flow position positively.</p>
-              <p class="heavy-font help-formula">Formula : (Overheads + Non-Cash Expense) x % Change</p>
+              <p class="light-font help-description">Changes in cash flow when operating & other expenses is reduced. A reduction in operating & other expenses would improve cash flow position .</p>
+              <p class="heavy-font help-formula">Formula : (Overheads - Non-Cash Expense) x % Change</p>
 
 
               <h4 class = "heavy-font help-title">Increase Sales Price </h4>
-              <p class="light-font help-description">Changes in cash flow when selling price is increased. An increase in selling price would improve cash flow position positively. </p>
+              <p class="light-font help-description">Changes in cash flow when selling price is increased. An increase in selling price would improve cash flow position . </p>
               <p class="heavy-font help-formula">Formula : (Revenue - Accounts Receivable) x  % Change</p>
 
 
               <h4 class = "heavy-font help-title">Increase Sales Volume</h4>
-              <p class="light-font help-description">Changes in cash flow when sales volume is increased. An increase in sales volume would improve cash flow position positively.</p>
+              <p class="light-font help-description">Changes in cash flow when sales volume is increased. An increase in sales volume would improve cash flow position .</p>
               <p class="heavy-font help-formula">Formula : (Revenue - COGS - Accounts Receivable - Inventory + Accounts Payable) x  % Change</p>
 
 
 
               <h4 class = "heavy-font help-title">Reduce Debtors</h4>
-              <p class="light-font help-description">Changes in cash flow when debt collection days are shortened. A reduction in debt collection days would improve cash flow position positively.</p>
+              <p class="light-font help-description">Changes in cash flow when debt collection days are shortened. A reduction in debt collection days would improve cash flow position .</p>
               <p class="heavy-font help-formula">Formula : Accounts Receivable - [(Days Sales Outstanding - Days Change) x  (Revenue / 365) x  (12/ Time period) ]</p>
 
 
               <h4 class = "heavy-font help-title">Reduce Inventory</h4>
-              <p class="light-font help-description">Changes in cash flow when inventory turnover days are shortened. A reduction in inventory turnover days would improve cash flow position positively.</p>
+              <p class="light-font help-description">Changes in cash flow when inventory turnover days are shortened. A reduction in inventory turnover days would improve cash flow position .</p>
               <p class="heavy-font help-formula">Formula : Inventory - [(Days Inventory Outstanding - Days Change) x  (COGS / 365) x  (12/ Time period) ]</p>
 
 
               <h4 class = "heavy-font help-title">Increase Creditors</h4>
-              <p class="light-font help-description">Changes in cash flow when inventory turnover days are lengthened. An increase in creditors days would improve cash flow position positively.</p>
+              <p class="light-font help-description">Changes in cash flow when payable turnover days are lengthened. An increase in creditors days would improve cash flow position .</p>
               <p class="heavy-font help-formula">Formula : Accounts Payable - {(Days Payable Outstanding - Days Change) x [(COGS + Other Operating Expenses - Non-Cash Expenses) / 365] x  (12 / Time period)}</p>
               <button class="close-help-btn btn btn-primary center-block" data-dismiss="modal"> Close </button>
           </div>

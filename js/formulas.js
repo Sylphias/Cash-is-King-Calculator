@@ -97,11 +97,11 @@ function OperatingExpensesAfter(opr_expense,reduce_opr_expense){
 }
 
 function AccountsReceivableAfter(accounts_receivable, rev_increase, increase_sales_vol, DSO, red_debtors, revenue, months, cogs, inventory, accounts_payable){
-  return accounts_receivable+(accounts_receivable-((DSO-red_debtors)*(revenue/365)*(12/months))+(revenue-cogs-accounts_receivable-inventory+accounts_payable)*increase_sales_vol+(revenue-accounts_receivable)*rev_increase)
+  return accounts_receivable+(accounts_receivable-((DSO+red_debtors)*(revenue/365)*(12/months))+(revenue-cogs-accounts_receivable-inventory+accounts_payable)*increase_sales_vol+(revenue-accounts_receivable)*rev_increase)
 }
 
 function InventoryAfter(inventory, cogs, increase_sales_vol, DIO, reduce_cogs,months,red_inventory){
-  return inventory+(-red_cogs*inventory)+(increase_sales_vol*inventory)+inventory-((DIO-red_inventory)*(cogs/365)*(12/months))
+  return inventory+(-red_cogs*inventory)+(increase_sales_vol*inventory)+inventory-((DIO+red_inventory)*(cogs/365)*(12/months))
 }
 
 function AccountsPayableAfter(accounts_payable,decrease_cogs,increase_creditors,DPO,increase_sales_vol,cogs,opr_expense,non_cash_expenses,months){

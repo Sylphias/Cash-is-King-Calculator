@@ -67,13 +67,13 @@ function Calculate(){
 
   // Effects Fields
   red_cogs= parseFloat($('#red-cogs').autoNumeric('get'))/100 
-  red_opr_ex = parseFloat($('#red-opr-ex').autoNumeric('get'))/100 
+  red_opr_exp = parseFloat($('#red-opr-ex').autoNumeric('get'))/100 
   inc_rev = parseFloat($('#inc-rev').autoNumeric('get'))/100 
   inc_sales_vol = parseFloat($('#inc-sales-vol').autoNumeric('get'))/100
   red_debt = parseFloat($('#red-debt').autoNumeric('get'))
   red_inv = parseFloat($('#red-inv').autoNumeric('get'))
   inc_creditor = parseFloat($('#inc-creditor').autoNumeric('get'))
-  if(time_period != 0 && revenue != 0 && cogs != 0){
+  if(time_period != 0 && revenue != 0){
     //Indicators
     $('#gross_margin').autoNumeric('set', GrossMargin(revenue,cogs)*100)
     $('#ebit').autoNumeric('set', EBIT(revenue,cogs,opr_exp)*100)
@@ -92,7 +92,7 @@ function Calculate(){
     // The purpose of this array is to get the maximum value of the effects to get the relative percentages for the shading
     effect_array = [
     COGSEffect(cogs,inventory,acct_payable,red_cogs),
-    OprExEffect(opr_exp,red_opr_ex,non_cash_expense),
+    OprExEffect(opr_exp,red_opr_exp,non_cash_expense),
     RevenueEffect(revenue,acct_receivable,inc_rev),
     SalesVolEffect(revenue,cogs,acct_receivable,inventory,acct_payable,inc_sales_vol),
     DebtorEffect(acct_receivable,DSO,red_debt,revenue,time_period),
@@ -116,12 +116,12 @@ function Calculate(){
     if( inc_creditor != 0 ){
       $('#inc-creditor-effect').autoNumeric('set',effect_array[6])
     }
-    if(red_debt != 0 || red_inv  != 0 || inc_creditor != 0 || red_cogs !=0 || red_opr_ex != 0 || inc_sales_vol != 0 || inc_rev !=0 ){
+    if(red_debt != 0 || red_inv  != 0 || inc_creditor != 0 || red_cogs !=0 || red_opr_exp != 0 || inc_sales_vol != 0 || inc_rev !=0 ){
       $('#total-cf-change').autoNumeric('set',effect_array.reduce(add,0))
     }
     
 
-    if (effect_array.length && (red_cogs != 0 || red_opr_ex != 0 || inc_rev != 0 || inc_sales_vol != 0 || red_debt != 0 || red_inv != 0 || inc_creditor != 0)) {
+    if (effect_array.length && (red_cogs != 0 || red_opr_exp != 0 || inc_rev != 0 || inc_sales_vol != 0 || red_debt != 0 || red_inv != 0 || inc_creditor != 0)) {
       for(i=0; i<effect_array.length; i++){
         EffectsBGRelativeChange($('#effects-section').find('.background-shading')[i],effect_array[i],max_value)
       }
@@ -141,11 +141,11 @@ function Calculate(){
 
     revenue_after= RevenueAfter(revenue, inc_rev,inc_sales_vol)
     cogs_after= CostOfGoodsSoldAfter(cogs,red_cogs, inc_sales_vol)
-    opr_exp_after= OperatingExpensesAfter(opr_exp, red_opr_ex)
+    opr_exp_after= OperatingExpensesAfter(opr_exp, red_opr_exp)
     acct_receivable_after= AccountsReceivableAfter(acct_receivable,inc_rev ,inc_sales_vol, DSO, red_debt,revenue,time_period,cogs,inventory,acct_payable)
     inventory_after= InventoryAfter(inventory,cogs,inc_sales_vol,DIO ,red_cogs,time_period, red_inv)
     acct_payable_after= AccountsPayableAfter(acct_payable,red_cogs,inc_creditor,DPO,inc_sales_vol,cogs,opr_exp,non_cash_expense,time_period)
-    non_cash_expense_after = NonCashExpenseAfter(non_cash_expense, red_opr_ex)
+    non_cash_expense_after = NonCashExpenseAfter(non_cash_expense, red_opr_exp)
 
 
 
@@ -173,19 +173,25 @@ function Calculate(){
     $('#cash_conv_after').autoNumeric('set', CashConversionCycle(DSO_after,DIO_after,DPO_after))
 
 }
-
+ 
  
 
   if(inc_sales_vol === 0 && red_inv === 0){
     $('#revenue_after').autoNumeric('set',revenue)
-    $('#accounts_receivable_after').autoNumeric('set',acct_receivable)
+    if(red_debt == 0) {
+      $('#accounts_receivable_after').autoNumeric('set',acct_receivable)
+    }
   }
   if(inc_sales_vol === 0 && red_cogs === 0){
     $('#cogs_after').autoNumeric('set',cogs)
-    $('#inventory_after').autoNumeric('set', inventory)
-    $('#accounts_payable_after').autoNumeric('set',acct_payable)
+    if (red_inv == 0){
+      $('#inventory_after').autoNumeric('set', inventory)
+    }
+    if(inc_creditor ==0){
+      $('#accounts_payable_after').autoNumeric('set',acct_payable)
+    }
   }
-  if(red_opr_ex === 0){
+  if(red_opr_exp === 0){
     $('#opr_ex_after').autoNumeric('set',opr_exp)
     $('#non_cash_expense_after').autoNumeric('set',non_cash_expense)
   }
@@ -198,6 +204,7 @@ function Calculate(){
 // This function changes the length of each effect's background shading in the effects column to be relative to the largest value
 function EffectsBGRelativeChange(target,value,max){
   ratio = (value/max)
+  console.log(target, ratio)
   shading_percentage =  ratio > 0.95 ? 95 : ratio*100
   $(target).css('background','linear-gradient(to right, #55A4DE '+ shading_percentage +'%, white)')
 }
