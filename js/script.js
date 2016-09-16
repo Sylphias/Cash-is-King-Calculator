@@ -176,7 +176,7 @@ function Calculate(){
  
  
 
-  if(inc_sales_vol === 0 && red_inv === 0){
+  if(inc_sales_vol === 0 && inc_rev === 0){
     $('#revenue_after').autoNumeric('set',revenue)
     if(red_debt == 0) {
       $('#accounts_receivable_after').autoNumeric('set',acct_receivable)
@@ -204,7 +204,6 @@ function Calculate(){
 // This function changes the length of each effect's background shading in the effects column to be relative to the largest value
 function EffectsBGRelativeChange(target,value,max){
   ratio = (value/max)
-  console.log(target, ratio)
   shading_percentage =  ratio > 0.95 ? 95 : ratio*100
   $(target).css('background','linear-gradient(to right, #55A4DE '+ shading_percentage +'%, white)')
 }
