@@ -91,10 +91,10 @@ function Calculate(){
 
     // The purpose of this array is to get the maximum value of the effects to get the relative percentages for the shading
     effect_array = [
-    COGSEffect(cogs,inventory,acct_payable,red_cogs),
-    OprExEffect(opr_exp,red_opr_exp,non_cash_expense),
     RevenueEffect(revenue,acct_receivable,inc_rev),
     SalesVolEffect(revenue,cogs,acct_receivable,inventory,acct_payable,inc_sales_vol),
+    COGSEffect(cogs,inventory,acct_payable,red_cogs),
+    OprExEffect(opr_exp,red_opr_exp,non_cash_expense),
     DebtorEffect(acct_receivable,DSO,red_debt,revenue,time_period),
     InventoryEffect(inventory,DIO,red_inv,cogs,time_period),
     CreditorEffect(acct_payable,DPO,inc_creditor,cogs,time_period, opr_exp,non_cash_expense)
@@ -103,10 +103,10 @@ function Calculate(){
     max_value = effect_array.reduce(max,0)
 
     //Effects calculations are here, can be refactored... done in a rush due to mingli presentation
-      $('#red-cogs-effect').autoNumeric('set',effect_array[0])
-      $('#red-opr-ex-effect').autoNumeric('set',effect_array[1])
-      $('#inc-rev-effect').autoNumeric('set',effect_array[2])
-      $('#inc-sales-vol-effect').autoNumeric('set',effect_array[3])
+      $('#red-cogs-effect').autoNumeric('set',effect_array[2])
+      $('#red-opr-ex-effect').autoNumeric('set',effect_array[3])
+      $('#inc-rev-effect').autoNumeric('set',effect_array[0])
+      $('#inc-sales-vol-effect').autoNumeric('set',effect_array[1])
     if( red_debt != 0 ){
       $('#red-debt-effect').autoNumeric('set',effect_array[4])
     }
