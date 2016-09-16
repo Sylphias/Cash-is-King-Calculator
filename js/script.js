@@ -110,11 +110,23 @@ function Calculate(){
     if( red_debt != 0 ){
       $('#red-debt-effect').autoNumeric('set',effect_array[4])
     }
+    else{
+      effect_array[4] = 0
+      $('#red-debt-effect').autoNumeric('set',0)
+    }
     if( red_inv != 0 ){
       $('#red-inv-effect').autoNumeric('set',effect_array[5])
     }
+    else{
+      effect_array[5] = 0
+      $('#red-inv-effect').autoNumeric('set',0)
+    }
     if( inc_creditor != 0 ){
       $('#inc-creditor-effect').autoNumeric('set',effect_array[6])
+    }
+    else{
+      effect_array[6] = 0
+      $('#inc-creditor-effect').autoNumeric('set',0)
     }
     if(red_debt != 0 || red_inv  != 0 || inc_creditor != 0 || red_cogs !=0 || red_opr_exp != 0 || inc_sales_vol != 0 || inc_rev !=0 ){
       $('#total-cf-change').autoNumeric('set',effect_array.reduce(add,0))
