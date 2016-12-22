@@ -92,7 +92,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin-top: 25px;
 }
 .cp-logo{
-  background-image: url("../img/CPLogo.png");
+  background-image: url("img/CPLogoCashIsKing.png");
   height:130px;
   width: 180px;
   background-size: cover;
@@ -330,7 +330,7 @@ and (max-width : 990px)
     padding-right: 0px !important;
   }
   .cp-logo{
-    background-image: url("../img/CPLogoOld.png");
+    background-image: url("img/CPLogoOldCashIsKing.png");
   }
 
 
