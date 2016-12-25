@@ -83,6 +83,8 @@ function CreditorEffect(accounts_payable,DPO,inc_creditors,cogs,months, opr_ex, 
 // Change to cash flow is a sum of the effects column
 
 
+
+
 //These functions are for the after column
 function RevenueAfter(revenue, rev_increase,increase_sales_vol){
   return revenue + (revenue * rev_increase) + (revenue *increase_sales_vol)
@@ -138,3 +140,11 @@ function InventoryDollars(cogs,inventory_days_changed,time_period){
 function InventoryDaysChanged(inventory,cogs,time_period,red_inventory){
   return ((inventory/cogs)*(time_period/12)*365)-red_inventory
 }
+
+
+
+//Hidden Formulas (Not Shown in UI)
+//TODO
+//Net Income
+//WC Inv
+

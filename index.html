@@ -157,7 +157,7 @@
           </div>   
           <div class="row business-row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label-column">
-              <p class ="business-label field-label medium-font">Non-Cash Expenses</p>
+              <p class ="business-label field-label medium-font">Tax Expense</p>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 input-column">
               <input class="business-input cash-formatting form-control" id="non_cash_expense" type="text" pattern="\d*"/>
@@ -168,7 +168,55 @@
               </input>
             </div>
           </div>                        
+          <div class="row business-row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label-column">
+              <p class ="business-label field-label medium-font">Interest Expenses</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 input-column">
+              <input class="business-input cash-formatting form-control" id="interest_expense" type="text" pattern="\d*"/>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 after-column">
+              <input class="form-control business-after cash-formatting" id="interest_expense_after" data-enhance="false" type="text" pattern="\d*" disabled="disabled">
+
+              </input>
+            </div>
+          </div>    
+          <div class="row business-row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label-column">
+              <p class ="business-label field-label medium-font">Capital Expenditure</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 input-column">
+              <input class="business-input cash-formatting form-control" id="capex" type="text" pattern="\d*"/>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 after-column">
+              <input class="form-control business-after cash-formatting" id="capex_after" data-enhance="false" type="text" pattern="\d*" disabled="disabled">
+
+              </input>
+            </div>
+          </div>  
+
+          <div class="row business-row">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label-column">
+              <p class ="business-label field-label medium-font">Borrowings</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 pyb_column">
+              <input class="business-input cash-formatting form-control" id="py_borrowings" type="text" pattern="\d*"/>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 input-column">
+              <input class="business-input cash-formatting form-control" id="borrowings" type="text" pattern="\d*"/>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 after-column">
+              <input class="form-control business-after cash-formatting" id="borrowings_after" data-enhance="false" type="text" pattern="\d*" disabled="disabled">
+
+              </input>
+            </div>
+          </div> 
+
+
         </div>
+
+
+        
         <!-- Effects columns -->
         <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-5 col-lg-offset-1  col-lg-5" id='effects-section'>
             <div class='row'>
@@ -291,6 +339,54 @@
               </div>
             </div>
 
+            <div class='row effects-row'>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 label-column">
+                <p class="field-label medium-font">Reduce Interest Rate</p>
+              </div>
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 input-column">
+                <input class="effect-input form-control percentage-formatting" id="red-interest-rate" type="text" pattern="\d*"/>
+              </div>
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 control-column">
+                <div class='control-btn add-value-btn noselect'>+</div>
+                <div class='control-btn minus-value-btn noselect'>-</div>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 effects-column">
+                <div class="background-shading effect-value negative-cash-formatting medium-font" id='red-interest-rate-effect'>0</div>
+              </div>
+            </div>
+
+            <div class='row effects-row'>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 label-column">
+                <p class="field-label medium-font">Decrease Borrowings</p>
+              </div>
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 input-column">
+                <input class="effect-input form-control percentage-formatting" id="red-borrowings" type="text" pattern="\d*"/>
+              </div>
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 control-column">
+                <div class='control-btn add-value-btn noselect'>+</div>
+                <div class='control-btn minus-value-btn noselect'>-</div>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 effects-column">
+                <div class="background-shading effect-value negative-cash-formatting medium-font" id='red-borrowings-effect'>0</div>
+              </div>
+            </div>
+
+            <div class='row effects-row'>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 label-column">
+                <p class="field-label medium-font">Increase in Capital Expenditure</p>
+              </div>
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 input-column">
+                <input class="effect-input form-control percentage-formatting" id="inc-capex" type="text" pattern="\d*"/>
+              </div>
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 control-column">
+                <div class='control-btn add-value-btn noselect'>+</div>
+                <div class='control-btn minus-value-btn noselect'>-</div>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 effects-column">
+                <div class="background-shading effect-value negative-cash-formatting medium-font" id='inc-capex-effect'>0</div>
+              </div>
+            </div>
+
             <div class='row effects-row subtotal'>
               <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 subtotal-label  heavy-font"> Total Change in Cash Flow:</div>
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 subtotal-field cash-formatting" id='total-cf-change'>0</div>
@@ -322,22 +418,22 @@
             <div class='label-title-column col-lg-3 col-xs-3 col-sm-3 col-md-3 heavy-font'>After</div>
           </div>
 
-
+          <!-- First Row  -->
 
           <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
             <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">Gross Margin:</div>
-            <div class='col-lg-3 indicator-field col-xs-3 col-sm-3 col-md-3 percentage-formatting heavy-font'id="gross_margin">0</div>
-            <div class='col-lg-3 indicator-field col-xs-3 col-sm-3 col-md-3 percentage-formatting heavy-font'id="gross_margin_after">0</div>
+            <div class='col-lg-3 indicator-field col-xs-3 col-sm-3 col-md-3 percentage-formatting heavy-font' id="gross_margin">0</div>
+            <div class='col-lg-3 indicator-field col-xs-3 col-sm-3 col-md-3 percentage-formatting heavy-font' id="gross_margin_after">0</div>
           </div>
           <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
             <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">EBIT:</div>
-            <div class='col-lg-3 indicator-field col-xs-3 col-sm-3 col-md-3 percentage-formatting heavy-font'id="ebit">0</div>
-            <div class='col-lg-3 indicator-field col-xs-3 col-sm-3 col-md-3 percentage-formatting heavy-font'id="ebit_after">0</div>
+            <div class='col-lg-3 indicator-field col-xs-3 col-sm-3 col-md-3 percentage-formatting heavy-font' id="ebit">0</div>
+            <div class='col-lg-3 indicator-field col-xs-3 col-sm-3 col-md-3 percentage-formatting heavy-font' id="ebit_after">0</div>
           </div>
           <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
             <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">EBITDA:</div>
-            <div class='col-lg-3 indicator-field col-xs-3 col-sm-3 col-md-3 percentage-formatting heavy-font'id="ebitda">0</div>
-            <div class='col-lg-3 indicator-field col-xs-3 col-sm-3 col-md-3 percentage-formatting heavy-font'id="ebitda_after">0</div>
+            <div class='col-lg-3 indicator-field col-xs-3 col-sm-3 col-md-3 percentage-formatting heavy-font' id="ebitda">0</div>
+            <div class='col-lg-3 indicator-field col-xs-3 col-sm-3 col-md-3 percentage-formatting heavy-font' id="ebitda_after">0</div>
           </div>
         
 
@@ -345,39 +441,62 @@
 
           <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
             <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">Marginal Cash Flow </br>- Per $1 EBITDA:</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-decimal-formatting heavy-font'id="mcf_ebitda">0</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-decimal-formatting heavy-font'id="mcf_ebitda_after">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-decimal-formatting heavy-font' id="mcf_ebitda">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-decimal-formatting heavy-font' id="mcf_ebitda_after">0</div>
           </div>
           <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
             <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">Cash Conversion Cycle:</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font'id="cash_conv">0</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font'id="cash_conv_after">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="cash_conv">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="cash_conv_after">0</div>
           </div>
 
           <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
             <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">Days Sales Outstanding:</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font'id="dso">0</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font'id="dso_after">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="dso">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="dso_after">0</div>
           </div>
 
          <!-- Third Row -->
           <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
             <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">Days Inventory Outstanding:</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font'id="dio">0</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font'id="dio_after">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="dio">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="dio_after">0</div>
           </div>
           <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
             <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">Days Payable Outstanding:</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font'id="dpo">0</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font'id="dpo_after">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="dpo">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="dpo_after">0</div>
           </div>
           <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
             <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">Investment in Working Capital - per $1 EBITDA:</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-decimal-formatting heavy-font'id="wc_ebitda">0</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-decimal-formatting heavy-font'id="wc_ebitda_after">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-decimal-formatting heavy-font' id="wc_ebitda">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-decimal-formatting heavy-font' id="wc_ebitda_after">0</div>
+          </div>
+        
+         <!-- Fourth Row -->
+          <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
+            <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">Interest Cover (times):</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="interest_cover">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="interest_cover_after">0</div>
+          </div>
+          <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
+            <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">Earnings After Tax (NPAT) Margin:</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="npat">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="npat_after">0</div>
+          </div>
+          <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
+            <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">CFO:</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-decimal-formatting heavy-font' id="cfo">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-decimal-formatting heavy-font' id="cfo_after">0</div>
           </div>
         
 
+         <!-- Fifth Row -->
+          <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
+            <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">FCFE:</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="fcfe">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="fcfe_after">0</div>
+          </div>
         
         </div>
       </div>
