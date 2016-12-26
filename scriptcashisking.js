@@ -64,6 +64,7 @@ function Calculate(){
   pyb_accounts_receivable = parseFloat($('#pyb_accounts_receivable').autoNumeric('get'))
   pyb_inventory = parseFloat($('#pyb_inventory').autoNumeric('get'))
   pyb_accounts_payable = parseFloat($('#pyb_accounts_payable').autoNumeric('get'))
+  pyb_borrowings = parseFloat($('#pyb_accounts_payable').autoNumeric('get'))
 
   // Effects Fields
   red_cogs= parseFloat($('#red-cogs').autoNumeric('get'))/100 

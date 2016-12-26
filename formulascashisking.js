@@ -1,5 +1,5 @@
 //var revenue,time_period, cost_of_goods_sold, opr_expense, accounts_receivable, accounts_payable, non_cash_expense
-
+//Power of One Indicators.
 //Gross Margin  
 function GrossMargin(revenue, cogs){
  return (((revenue-cogs)*100)/revenue)/100
@@ -30,8 +30,8 @@ function MarginalCFRevenue(gross_margin, investment_wc_rev){
 }    
 
 //Marginal Cash Flow per EBITDA  
-function MarginalCFEbitda(months, revenue,cogs,accounts_receivable,inventory,accounts_payable,opr_exp, non_cash_expense, pyr_accounts_receivable, pyr_inventory, pyr_accounts_payable){
-  return (revenue - cogs - opr_exp + non_cash_expense-((accounts_receivable + inventory - accounts_payable)-(pyr_accounts_receivable + pyr_inventory - pyr_accounts_payable)))/((revenue - cogs - opr_exp + non_cash_expense)*12/months)
+function MarginalCFEbitda(months, revenue,cogs,accounts_receivable,inventory,accounts_payable,opr_expense, non_cash_expense, pyr_accounts_receivable, pyr_inventory, pyr_accounts_payable){
+  return (revenue - cogs - opr_expense + non_cash_expense-((accounts_receivable + inventory - accounts_payable)-(pyr_accounts_receivable + pyr_inventory - pyr_accounts_payable)))/((revenue - cogs - opr_exp + non_cash_expense)*12/months)
 }  
 //DSO
 function DaysSalesOutstanding(accounts_receivable,time_period,revenue){
@@ -42,14 +42,31 @@ function DaysInventoryOutstanding(inventory,time_period,cogs){
   return (inventory*365*time_period)/(cogs*12)
 }
 //DPO
-function DaysPayableOutstanding(accounts_payable,time_period, cogs, opr_exp,non_cash_expense){
-  return (accounts_payable*365*time_period)/((cogs + opr_exp - non_cash_expense)*12)
+function DaysPayableOutstanding(accounts_payable,time_period, cogs, opr_expense,non_cash_expense){
+  return (accounts_payable*365*time_period)/((cogs + opr_expense - non_cash_expense)*12)
 }
 
 function CashConversionCycle(DSO,DIO,DPO){
   return DSO+DIO-DPO
-
 }
+
+//King Kong Calculator for Power of One Indicator
+function InterestCover(revenue, interest_expense, ebit){
+  return revenue*interest_expense*ebit
+}
+
+function EarningsNPAT(revenue, cogs, opr_expense, tax_expense, interest_expense){
+  return (revenue - cogs - opr_expense - tax_expense - interest_expense)/revenue
+}
+
+function CFO(net_income, non_cash_expense, wc_inv){
+  return net_income +non_cash_expense + wc_inv
+}
+
+function FCFE(cfo, capex , borrowings, pyr_borrowings){
+  return cfo - capex + (borrowings - pyr_borrowings)
+}
+
 
 // These formulas are for the effects column
 function COGSEffect(cogs,inventory,accounts_payable,reduce_cogs){
@@ -80,9 +97,18 @@ function CreditorEffect(accounts_payable,DPO,inc_creditors,cogs,months, opr_ex, 
   return accounts_payable-((DPO-inc_creditors)* (cogs + opr_ex - non_cash_expense)/ 365 * 12 / months )
 }
 
+
+//KingKongCalc new Effects
+function DecreaseBorrowingsEffect(borrowings, decrease_borrowings){
+  return borrowings * decrease_borrowings
+}
+
+function IncreaseCapexEffect(capex, increase_capex){
+  return capex * increase_capex;
+}
+
+
 // Change to cash flow is a sum of the effects column
-
-
 
 
 //These functions are for the after column
@@ -115,6 +141,20 @@ function NonCashExpenseAfter(non_cash_expense, reduce_opr_expense){
   return non_cash_expense-(non_cash_expense*reduce_opr_expense)
 }
 
+// King Kong Calc Additional Formulas
+
+function InterestExpenseAfter(borrowings, decrease_borrowings_effect, interest_expense,reduce_interest_rates){
+  return (borrowings + decrease_borrowings_effect)*(interest_expense/borrowings - reduce_interest_rates)
+}
+
+function CapexAfter(capex, increase_capex){
+  return capex + increase_capex
+}
+
+function BorrowingsAfter(borrowings, decrease_borrowings_effect){
+  return borrowings + decrease_borrowings_effect
+}
+
 // Other Indicator formulas
 // red means reduce
 function CreditorDollars(cogs,creditors_days_changed,time_period){
@@ -143,8 +183,14 @@ function InventoryDaysChanged(inventory,cogs,time_period,red_inventory){
 
 
 
-//Hidden Formulas (Not Shown in UI)
-//TODO
-//Net Income
-//WC Inv
 
+
+//Hidden Formulas (Not Shown in UI)
+//Net Income
+function NetIncome(revenue,cogs,opr_expense, tax_expense, interest_expense){
+  return revenue-cogs-opr_expense - tax_expense - interest_expense
+}
+//WC Inv
+function WCInv(accounts_receivable, inventory, accounts_payable, pyr_accounts_receivable, pyr_inventory, pyr_accounts_payable){
+  return (accounts_receivable + inventory - accounts_payable) - (pyr_accounts_receivable + pyr_inventory - pyr_accounts_payable)
+}
