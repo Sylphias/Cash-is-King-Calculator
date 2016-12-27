@@ -236,9 +236,10 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 0px 5px;
     margin:10px 0px;
   }
-
+  .help-title:not(:first-child){
+    padding-top: 35px;
+  }
   .help-title{
-    padding-top: 5px;
     color: #012742;
     border-bottom: 1px solid black;
     margin-bottom: 5px;
