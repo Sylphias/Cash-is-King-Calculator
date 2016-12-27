@@ -155,9 +155,10 @@
               </input>
             </div>
           </div>   
+
           <div class="row business-row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label-column">
-              <p class ="business-label field-label medium-font">Tax Expense</p>
+              <p class ="business-label field-label medium-font">Non Cash Expense</p>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 input-column">
               <input class="business-input cash-formatting form-control" id="non_cash_expense" type="text" pattern="\d*"/>
@@ -167,7 +168,22 @@
 
               </input>
             </div>
-          </div>                        
+          </div>        
+
+          <div class="row business-row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label-column">
+              <p class ="business-label field-label medium-font">Tax Expense</p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 input-column">
+              <input class="business-input cash-formatting form-control" id="tax_expense" type="text" pattern="\d*"/>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 after-column">
+              <input class="form-control business-after cash-formatting" id="tax_expense_after" data-enhance="false" type="text" pattern="\d*" disabled="disabled">
+
+              </input>
+            </div>
+          </div>         
+
           <div class="row business-row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label-column">
               <p class ="business-label field-label medium-font">Interest Expenses</p>
@@ -350,9 +366,6 @@
                 <div class='control-btn add-value-btn noselect'>+</div>
                 <div class='control-btn minus-value-btn noselect'>-</div>
               </div>
-              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 effects-column">
-                <div class="background-shading effect-value negative-cash-formatting medium-font" id='red-interest-rate-effect'>0</div>
-              </div>
             </div>
 
             <div class='row effects-row'>
@@ -367,7 +380,7 @@
                 <div class='control-btn minus-value-btn noselect'>-</div>
               </div>
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 effects-column">
-                <div class="background-shading effect-value negative-cash-formatting medium-font" id='red-borrowings-effect'>0</div>
+                <div class="background-shading effect-value negative-cash-decimal-formatting medium-font" id='red-borrowings-effect'>0</div>
               </div>
             </div>
 
@@ -383,7 +396,7 @@
                 <div class='control-btn minus-value-btn noselect'>-</div>
               </div>
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 effects-column">
-                <div class="background-shading effect-value negative-cash-formatting medium-font" id='inc-capex-effect'>0</div>
+                <div class="background-shading effect-value negative-cash-decimal-formatting medium-font" id='inc-capex-effect'>0</div>
               </div>
             </div>
 
@@ -476,26 +489,26 @@
          <!-- Fourth Row -->
           <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
             <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">Interest Cover (times):</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="interest_cover">0</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="interest_cover_after">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-decimal-formatting heavy-font' id="interest_cover">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-decimal-formatting heavy-font' id="interest_cover_after">0</div>
           </div>
           <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
             <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">Earnings After Tax (NPAT) Margin:</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="npat">0</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="npat_after">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field percentage-formatting heavy-font' id="npat">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field percentage-formatting heavy-font' id="npat_after">0</div>
           </div>
           <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
             <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">CFO:</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-decimal-formatting heavy-font' id="cfo">0</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-decimal-formatting heavy-font' id="cfo_after">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-formatting heavy-font' id="cfo">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-formatting heavy-font' id="cfo_after">0</div>
           </div>
         
 
          <!-- Fifth Row -->
           <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
             <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">FCFE:</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="fcfe">0</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field days-formatting heavy-font' id="fcfe_after">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-formatting heavy-font' id="fcfe">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-formatting heavy-font' id="fcfe_after">0</div>
           </div>
         
         </div>

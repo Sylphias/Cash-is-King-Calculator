@@ -52,7 +52,7 @@ function CashConversionCycle(DSO,DIO,DPO){
 
 //King Kong Calculator for Power of One Indicator
 function InterestCover(revenue, interest_expense, ebit){
-  return revenue*interest_expense*ebit
+  return (revenue*ebit)/interest_expense
 }
 
 function EarningsNPAT(revenue, cogs, opr_expense, tax_expense, interest_expense){
@@ -60,7 +60,7 @@ function EarningsNPAT(revenue, cogs, opr_expense, tax_expense, interest_expense)
 }
 
 function CFO(net_income, non_cash_expense, wc_inv){
-  return net_income +non_cash_expense + wc_inv
+  return net_income +non_cash_expense - wc_inv
 }
 
 function FCFE(cfo, capex , borrowings, pyr_borrowings){
@@ -100,7 +100,7 @@ function CreditorEffect(accounts_payable,DPO,inc_creditors,cogs,months, opr_ex, 
 
 //KingKongCalc new Effects
 function DecreaseBorrowingsEffect(borrowings, decrease_borrowings){
-  return borrowings * decrease_borrowings
+  return (borrowings * decrease_borrowings) * -1
 }
 
 function IncreaseCapexEffect(capex, increase_capex){
@@ -141,7 +141,7 @@ function NonCashExpenseAfter(non_cash_expense, reduce_opr_expense){
   return non_cash_expense-(non_cash_expense*reduce_opr_expense)
 }
 
-// King Kong Calc Additional Formulas
+// King Kong Calc Additional Formulas for key finance info
 
 function InterestExpenseAfter(borrowings, decrease_borrowings_effect, interest_expense,reduce_interest_rates){
   return (borrowings + decrease_borrowings_effect)*(interest_expense/borrowings - reduce_interest_rates)
