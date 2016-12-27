@@ -40,9 +40,6 @@ $(document).ready(function() {
     target_value.autoNumeric('set', parseFloat(target_value.autoNumeric('get'))-1)
     Calculate()
   });
-
-  TestValues()
-
  });
 
 // This function runs all the formulas for the calculator
