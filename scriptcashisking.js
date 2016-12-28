@@ -21,6 +21,7 @@ $(document).ready(function() {
   $('.negative-cash-formatting').autoNumeric('init',{aSign:'$ ',aDec:'.',aSep:',',nBracket: '(,)',wEmpty:'zero',mDec: '0'});
   $('.negative-cash-decimal-formatting').autoNumeric('init',{aSign:'$ ',aDec:'.',aSep:',',nBracket: '(,)',wEmpty:'zero'});
   $('.days-formatting').autoNumeric('init',{aSign:' day(s)',aDec:'.',aSep:',',wEmpty:'zero',pSign:'s',mDec: '0'});
+  $('.times-decimal-formatting').autoNumeric('init',{aSign:' times',aDec:'.',aSep:',',wEmpty:'zero',pSign:'s',mDec: '0'});
   $('.subtotal-field').autoNumeric('init',{aSign:'$ ',aDec:'.',aSep:',',wEmpty:'zero',mDec: '0'});
   // Focus and blur to trigger formatting js
   $('.form-control').val(0).focus().blur()
@@ -123,7 +124,8 @@ function Calculate(){
     InventoryEffect(inventory,DIO,red_inv,cogs,time_period),
     CreditorEffect(acct_payable,DPO,inc_creditor,cogs,time_period, opr_exp,non_cash_expense),
     DecreaseBorrowingsEffect(borrowings, red_borrowings),
-    IncreaseCapexEffect(capex,inc_capex)
+    IncreaseCapexEffect(capex,inc_capex),
+    ReduceInterestRateEffect(interest_expense ,red_interest_rate)
     ]
 
     max_value = effect_array.reduce(max,0)
@@ -173,8 +175,16 @@ function Calculate(){
       $('#inc-capex-effect').autoNumeric('set',0)
     }
 
+    if( red_interest_rate != 0 ){
+      $('#red-interest-rate-effect').autoNumeric('set',effect_array[9])
+    }
+    else{
+      effect_array[8] = 0
+      $('#red-interest-rate-effect').autoNumeric('set',0)
+    }
+
     // if none of the effects input values are 0, then sum up all the effects and put them as part of the cashflow change value
-    fields_not_empty = red_debt != 0 || red_inv  != 0 || inc_creditor != 0 || red_cogs !=0 || red_opr_exp != 0 || inc_sales_vol != 0 || inc_rev !=0 || inc_capex !=0 || red_borrowings != 0
+    fields_not_empty = red_debt != 0 || red_inv  != 0 || inc_creditor != 0 || red_cogs !=0 || red_opr_exp != 0 || inc_sales_vol != 0 || inc_rev !=0 || inc_capex !=0 || red_borrowings != 0 || red_interest_rate != 0
 
 
     if(fields_not_empty){

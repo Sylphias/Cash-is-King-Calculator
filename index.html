@@ -158,7 +158,7 @@
 
           <div class="row business-row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label-column">
-              <p class ="business-label field-label medium-font">Non Cash Expense</p>
+              <p class ="business-label field-label medium-font">Non Cash Expenses</p>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 input-column">
               <input class="business-input cash-formatting form-control" id="non_cash_expense" type="text" pattern="\d*"/>
@@ -172,7 +172,7 @@
 
           <div class="row business-row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label-column">
-              <p class ="business-label field-label medium-font">Tax Expense</p>
+              <p class ="business-label field-label medium-font">Tax Expenses</p>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 input-column">
               <input class="business-input cash-formatting form-control" id="tax_expense" type="text" pattern="\d*"/>
@@ -199,7 +199,7 @@
           </div>    
           <div class="row business-row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label-column">
-              <p class ="business-label field-label medium-font">Capital Expenditure</p>
+              <p class ="business-label field-label medium-font">Capital Expenditures</p>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 input-column">
               <input class="business-input cash-formatting form-control" id="capex" type="text" pattern="\d*"/>
@@ -366,11 +366,14 @@
                 <div class='control-btn add-value-btn noselect'>+</div>
                 <div class='control-btn minus-value-btn noselect'>-</div>
               </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 effects-column">
+                <div class="background-shading effect-value negative-cash-decimal-formatting medium-font" id='red-interest-rate-effect'>0</div>
+              </div>
             </div>
 
             <div class='row effects-row'>
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 label-column">
-                <p class="field-label medium-font">Decrease Borrowings</p>
+                <p class="field-label medium-font">Reduce Borrowings</p>
               </div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 input-column">
                 <input class="effect-input form-control percentage-formatting" id="red-borrowings" type="text" pattern="\d*"/>
@@ -386,7 +389,7 @@
 
             <div class='row effects-row'>
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 label-column">
-                <p class="field-label medium-font">Increase in Capital Expenditure</p>
+                <p class="field-label medium-font">Increase in Capital Expenditures</p>
               </div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 input-column">
                 <input class="effect-input form-control percentage-formatting" id="inc-capex" type="text" pattern="\d*"/>
@@ -488,9 +491,9 @@
         
          <!-- Fourth Row -->
           <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
-            <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">Interest Cover (times):</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-decimal-formatting heavy-font' id="interest_cover">0</div>
-            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field negative-cash-decimal-formatting heavy-font' id="interest_cover_after">0</div>
+            <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">Interest Cover:</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field times-decimal-formatting heavy-font' id="interest_cover">0</div>
+            <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3 indicator-field times-decimal-formatting heavy-font' id="interest_cover_after">0</div>
           </div>
           <div class="indicator-container col-lg-4 col-xs-12 col-sm-12 col-md-6">
             <div class="field-label indicator-label col-lg-6 col-xs-6 col-sm-6 col-md-6 medium-font">Earnings After Tax (NPAT) Margin:</div>
@@ -582,13 +585,13 @@
               <p class="light-font help-description">Days inventory outstanding calculates how many days inventory are held (on average) before it is sold. It measures the efficiency of a company’s inventory management. A lower number of days inventory outstanding is better.</p>
               <p class="heavy-font help-formula">Formula : EBIT / Interest Payment </p>
 
-              <h4 class = "heavy-font help-title">Cash Flowfrom Operating Activities (CFO)</h4>
+              <h4 class = "heavy-font help-title">Cash Flow from Operating Activities (CFO)</h4>
 
-              <p class="light-font help-description">Cash Flow from operation measures the amount of cash generated from the normal business of the firm. </p>
+              <p class="light-font help-description">Cash Flow from operating activities measures the amount of cash generated from the normal business of the firm. </p>
               <p class="heavy-font help-formula">Formula : Net income + Non-Cash Expenses - Changes in Working Capital.</p>
 
 
-              <h4 class = "heavy-font help-title">Free Cash Flow to Equity (CFCE) </h4>
+              <h4 class = "heavy-font help-title">Free Cash Flow to Equity (FCFE) </h4>
               <p class="light-font help-description">Free cash flow to equity (FCFE) is the cash flow that is available for distribution to the common shareholders; that is, after all obligations have been paid. </p>
               <p class="heavy-font help-formula">Formula : CFO - Net Capital Expenditure + Net Borrowing</p>
 
@@ -644,16 +647,16 @@
               <h4 class = "heavy-font help-title">Reduce Interest Rate</h4>
               <p class="light-font help-description">Changes in cash flow when interest rate on borrowings is reduced. A reduction in interest rate would improve cash flow position positively.
               </p>
-              <p class="heavy-font help-formula">Formula : (Interest expense) x % Change </p>
+              <p class="heavy-font help-formula">Formula : Interest expense x % Change </p>
 
               <h4 class = "heavy-font help-title">Reduce Borrowings</h4>
               <p class="light-font help-description">Changes in cash flow when borrowings is reduced. A reduction in borrowings would improve cash flow position positively.
               </p>
-              <p class="heavy-font help-formula">Formula : (Borrowings) x % Change </p>
+              <p class="heavy-font help-formula">Formula : Borrowings x % Change </p>
 
-              <h4 class = "heavy-font help-title">Increase Creditors</h4>
-              <p class="light-font help-description">Changes in cash flow when capital expenditure is reduced. A reduction in capital expenditure would immediately improve cash flow position positively.</p>
-              <p class="heavy-font help-formula">Formula : (Interest expense) x % Change in interest rates</p>
+              <h4 class = "heavy-font help-title">Capital Expenditure</h4>
+              <p class="light-font help-description">Changes in cash flow when capital expenditure is increased. A reduction in capital expenditure would immediately improve cash flow position positively.</p>
+              <p class="heavy-font help-formula">Formula : Capital Expenditure x % Change </p>
 
 
               <button class="close-help-btn btn btn-primary center-block" data-dismiss="modal"> Close </button>

@@ -107,6 +107,10 @@ function IncreaseCapexEffect(capex, increase_capex){
   return capex * increase_capex;
 }
 
+function ReduceInterestRateEffect(interest, red_interest){
+  return interest * red_interest;
+}
+
 
 // Change to cash flow is a sum of the effects column
 
